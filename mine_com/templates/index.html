@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Servers Monitor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>Minecraft Servers Monitoring</h1>
+        <a href="{{ url_for('logout') }}" class="logout-btn">Выход</a>
+    </div>
+
+    <h2>Список серверов</h2>
+    <ul class="server-list">
+      {% for server in servers %}
+          <li class="server-item" data-server="{{ server.name }}">
+              {{ server.name }}
+              <span class="server-toggle {{ 'active' if server.active else 'inactive' }}">
+                  {{ 'Активен' if server.active else 'Неактивен' }}
+              </span>
+              <button class="server-btn"
+                      onclick="serverAction('{{ server.name }}', 'start', this)"
+                      {% if server.active or server.busy %}disabled{% endif %}>
+                  Включить
+              </button>
+              <button class="server-btn"
+                      onclick="serverAction('{{ server.name }}', 'stop', this)"
+                      {% if not server.active or server.busy %}disabled{% endif %}>
+                  Выключить
+              </button>
+              <span class="busy-indicator" {% if not server.busy %}style="display:none"{% endif %}>⏳</span>
+              <button class="server-btn log-btn" onclick="showLog('{{ server.name }}')">Лог старта</button>
+              <button class="server-btn log-btn" onclick="showLogStop('{{ server.name }}')">Лог остановки</button>
+          </li>
+      {% endfor %}
+  </ul>
+
+    <h2>Системные метрики</h2>
+    <div class="metrics-container">
+        <!-- CPU -->
+        <div class="metric-item">
+            <div class="progress-circle" id="cpu-circle">
+                <svg>
+                    <circle class="progress-background" cx="60" cy="60" r="54"></circle>
+                    <circle class="progress-bar" cx="60" cy="60" r="54" style="--percent: {{ resources.cpu_usage }}"></circle>
+                </svg>
+            </div>
+            <div class="metric-value" id="cpu-percent">{{ resources.cpu_usage }}%</div>
+            <div class="metric-label">Использование CPU</div>
+        </div>
+
+        <!-- Memory -->
+        <div class="metric-item">
+            <div class="progress-circle" id="memory-circle">
+                <svg>
+                    <circle class="progress-background" cx="60" cy="60" r="54"></circle>
+                    <circle class="progress-bar" cx="60" cy="60" r="54" style="--percent: {{ (resources.memory.used / resources.memory.total * 100) | round }}"></circle>
+                </svg>
+            </div>
+            <div class="metric-value" id="memory-percent">
+                {{ (resources.memory.used / resources.memory.total * 100) | round }}%
+                <span class="metric-small">({{ resources.memory.used }} / {{ resources.memory.total }} ГБ)</span>
+            </div>
+            <div class="metric-label">Использование памяти</div>
+        </div>
+
+        <!-- Root Disk -->
+        <div class="metric-item">
+            <div class="progress-circle" id="disk-root-circle">
+                <svg>
+                    <circle class="progress-background" cx="60" cy="60" r="54"></circle>
+                    <circle class="progress-bar" cx="60" cy="60" r="54" style="--percent: {{ (resources.disk_root.used / resources.disk_root.total * 100) | round }}"></circle>
+                </svg>
+            </div>
+            <div class="metric-value" id="disk-root-percent">
+                {{ (resources.disk_root.used / resources.disk_root.total * 100) | round }}%
+                <span class="metric-small">({{ resources.disk_root.used }} / {{ resources.disk_root.total }} ГБ)</span>
+            </div>
+            <div class="metric-label">Диск (root)</div>
+        </div>
+
+        <!-- RAID Disk -->
+        <div class="metric-item">
+            <div class="progress-circle" id="disk-raid-circle">
+                <svg>
+                    <circle class="progress-background" cx="60" cy="60" r="54"></circle>
+                    <circle class="progress-bar" cx="60" cy="60" r="54" style="--percent: {{ (resources.disk_raid.used / resources.disk_raid.total * 100) | round if resources.disk_raid.total != 'N/A' else 0 }}"></circle>
+                </svg>
+            </div>
+            <div class="metric-value" id="disk-raid-percent">
+                {% if resources.disk_raid.total != 'N/A' %}
+                    {{ (resources.disk_raid.used / resources.disk_raid.total * 100) | round }}%
+                    <span class="metric-small">({{ resources.disk_raid.used }} / {{ resources.disk_raid.total }} ГБ)</span>
+                {% else %}
+                    N/A
+                {% endif %}
+            </div>
+            <div class="metric-label">RAID массив</div>
+        </div>
+    </div>
+
+    <script>
+        function updateResources() {
+            fetch('/resources')
+                .then(response => response.json())
+                .then(data => {
+                    // CPU
+                    updateMetric('cpu', data.cpu_usage);
+                    
+                    // Memory
+                    const memPercent = (data.memory.used / data.memory.total * 100).toFixed(0);
+                    updateMetric('memory', memPercent, `${data.memory.used} / ${data.memory.total} ГБ`);
+                    
+                    // Root Disk
+                    const rootPercent = (data.disk_root.used / data.disk_root.total * 100).toFixed(0);
+                    updateMetric('disk-root', rootPercent, `${data.disk_root.used} / ${data.disk_root.total} ГБ`);
+                    
+                    // RAID Disk
+                    if(data.disk_raid.total !== "N/A") {
+                        const raidPercent = (data.disk_raid.used / data.disk_raid.total * 100).toFixed(0);
+                        updateMetric('disk-raid', raidPercent, `${data.disk_raid.used} / ${data.disk_raid.total} ГБ`);
+                    } else {
+                        updateMetric('disk-raid', "N/A", null);
+                    }
+                })
+                .catch(error => console.error('Ошибка обновления:', error));
+        }
+
+        function updateMetric(type, percent, usedMaxText = null) {
+            const element = document.querySelector(`#${type}-circle .progress-bar`);
+            const valueElement = document.getElementById(`${type}-percent`);
+            
+            if(element && valueElement) {
+                if(percent !== "N/A") {
+                    const circumference = 339; // 2 * π * 54
+                    const offset = circumference - (percent / 100 * circumference);
+                    element.style.strokeDashoffset = offset;
+                    valueElement.innerHTML = `${percent}%` + (usedMaxText ? ` <span class="metric-small">(${usedMaxText})</span>` : "");
+                } else {
+                    element.style.strokeDashoffset = 339;
+                    valueElement.innerHTML = "N/A";
+                }
+            }
+        }
+        function updateServerStatus() {
+            fetch('/server_status')
+                .then(resp => resp.json())
+                .then(data => {
+                    data.servers.forEach(server => {
+                        const listItem = document.querySelector(`li.server-item[data-server="${server.name}"]`);
+                        if (listItem) {
+                            // Кнопки
+                            const btnStart = listItem.querySelector('button[onclick*="start"]');
+                            const btnStop = listItem.querySelector('button[onclick*="stop"]');
+                            const toggle = listItem.querySelector('.server-toggle');
+                            const busy = listItem.querySelector('.busy-indicator');
+                            // Статус активности
+                            if (toggle) {
+                                toggle.className = 'server-toggle ' + (server.active ? 'active' : 'inactive');
+                                toggle.textContent = server.active ? 'Активен' : 'Неактивен';
+                            }
+                            // Кнопки
+                            if (btnStart) btnStart.disabled = server.active || server.busy;
+                            if (btnStop) btnStop.disabled = !server.active || server.busy;
+                            // Индикатор
+                            if (busy) busy.style.display = server.busy ? '' : 'none';
+                        }
+                    });
+                });
+        }
+        function serverAction(name, action, btn) {
+            btn.disabled = true;
+            fetch(`/server/${name}/${action}`, {method: 'POST'})
+                .then(resp => resp.json())
+                .then(data => {
+                    if (!data.success) {
+                        alert(data.message || 'Ошибка');
+                    }
+                    updateServerStatus();
+                })
+                .catch(() => {
+                    alert('Ошибка запроса');
+                    updateServerStatus();
+                });
+        }
+        function showLog(server) {
+            fetch(`/server/${server}/start/log`)
+                .then(r => r.json())
+                .then(d => alert(d.log));
+        }
+        function showLogStop(server) {
+            fetch(`/server/${server}/stop/log`)
+                .then(r => r.json())
+                .then(d => alert(d.log));
+        }
+        // Обновление каждые 0.5 секунды
+        setInterval(updateResources, 500);
+        updateResources();
+    </script>
+    <style>
+        .server-btn {
+            margin-left: 10px;
+            padding: 4px 12px;
+            border-radius: 6px;
+            border: none;
+            background: #4dabf7;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .server-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .busy-indicator {
+            margin-left: 10px;
+            color: #f0ad4e;
+            font-size: 18px;
+            vertical-align: middle;
+        }
+        .metric-small {
+            font-size: 13px;
+            color: #888;
+            margin-left: 4px;
+        }
+        .log-btn {
+            background: #606060;
+            margin-left: 5px;
+            font-size: 12px;
+            padding: 2px 10px;
+        }
+    </style>
+</body>
+</html>

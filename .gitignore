@@ -1,0 +1,11 @@
+# Игнорировать все папки и файлы по умолчанию
+/*
+
+# Но НЕ игнорировать эти каталоги и их содержимое:
+!mine_com/
+!precreated_server_prefab/
+
+# Также не игнорировать .gitignore и другие типичные git-файлы
+!.gitignore
+!.gitattributes
+!README.md
