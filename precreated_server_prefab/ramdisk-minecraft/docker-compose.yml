@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  minecraft:
+    build: 
+      context: /home/sha/minecraft_servers/vanilla/neoforge-server
+      args:
+          SERVER_NAME: vanilla
+    container_name: vanilla-server
+    ports:
+      - "25565:25565"
+      - "8123:8123"
+      - "25575:25575"
+      - "7979:7979"
+    volumes:
+      - /mnt/ramdisk/vanilla_world:/server/vanilla/world
+      - /mnt/raid/minecraft/vanilla/bluemap:/server/vanilla/bluemap
+      - /home/sha/minecraft_servers/vanilla/ramdisk-minecraft/user_jvm_args.txt:/server/vanilla/user_jvm_args.txt:ro
+      - /home/sha/minecraft_servers/vanilla/ramdisk-minecraft/server.properties:/server/vanilla/server.properties:ro
+    restart: unless-stopped

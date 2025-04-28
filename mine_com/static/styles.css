@@ -25,6 +25,66 @@ h1, h2 {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+.server-main-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* Маленькие графики справа от инфо */
+
+.small-metrics {
+    display: flex;
+    gap: 12px;
+    margin-left: auto;
+}
+
+.mini-metric-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 54px;
+}
+
+.mini-progress-circle {
+    width: 54px;
+    height: 54px;
+    display: block;
+}
+
+.mini-progress-background {
+    fill: none;
+    stroke: #e9ecef;
+    stroke-width: 7;
+}
+
+.mini-progress-bar {
+    fill: none;
+    stroke: #4dabf7;
+    stroke-width: 7;
+    stroke-dasharray: 138.2; /* 2 * π * 22 */
+    stroke-dashoffset: 138.2;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mini-metric-label {
+    font-size: 13px;
+    color: #808080;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.mini-metric-value {
+    fill: #212529;
+    font-weight: bold;
+    dominant-baseline: middle;
+    pointer-events: none;
+}
+
 /* Шапка */
 .header {
     display: flex;
@@ -111,10 +171,13 @@ h1, h2 {
         grid-template-columns: 1fr 1fr;
         gap: 20px;
     }
-    
     .progress-circle {
         width: 100px;
         height: 100px;
+    }
+    .mini-progress-circle {
+        width: 32px;
+        height: 32px;
     }
 }
 
@@ -122,7 +185,6 @@ h1, h2 {
     .metrics-container {
         grid-template-columns: 1fr;
     }
-    
     .header {
         flex-direction: column;
         align-items: flex-start;
@@ -145,4 +207,62 @@ h1, h2 {
 }
 .server-toggle.inactive {
     background: #dc3545;
+}
+
+.server-actions {
+    margin-bottom: 15px;
+}
+
+.server-btn {
+    margin-right: 10px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: none;
+    background: #4dabf7;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.server-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+.busy-indicator {
+    margin-left: 10px;
+    color: #f0ad4e;
+    font-size: 18px;
+    vertical-align: middle;
+}
+.log-btn {
+    background: #606060;
+    margin-right: 7px;
+    margin-top: 5px;
+    font-size: 12px;
+    padding: 2px 10px;
+}
+.properties-panel, .jvmargs-panel {
+    margin-top: 8px;
+    margin-bottom: 12px;
+    background: #f7f7fa;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    padding: 10px;
+}
+.properties-panel input[type="text"] {
+    font-family: monospace;
+    background: #fff;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    margin-left: 5px;
+    padding: 2px 6px;
+}
+.jvmargs-panel textarea {
+    font-family: monospace;
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    height: 400px; /* увеличено */
 }
