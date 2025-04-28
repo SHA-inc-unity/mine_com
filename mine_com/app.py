@@ -111,6 +111,10 @@ def server_action(server_name, action):
     if action not in ['start', 'stop']:
         return jsonify({'success': False, 'error': 'Unknown action'}), 400
     script_file = 'start.sh' if action == 'start' else 'stop.sh'
+    # --- вот здесь вызываем замену ---
+    if action == 'start':
+        patch_bluemap_configs(server_name)
+    # --- конец вставки ---
     ok, msg = run_server_script(server_name, script_file)
     return jsonify({'success': ok, 'message': msg})
 
@@ -283,21 +287,134 @@ def server_metrics(server_name):
         "ramdisk_percent": ramdisk_percent
     })
 
+@app.route('/create_server', methods=['POST'])
+def create_server():
+    if 'logged_in' not in session or not session['logged_in']:
+        return jsonify({'success': False, 'error': 'Unauthorized'}), 401
+
+    data = request.get_json()
+    server_name = data.get('server_name', '').strip()
+
+    # Проверка валидности имени (буквы, цифры, дефис, нижнее подчёркивание)
+    if not server_name or not server_name.isidentifier():
+        return jsonify({'success': False, 'error': 'Некорректное имя сервера'}), 400
+
+    src = os.path.join(MINECRAFT_SERVERS_DIR, 'precreated_server_prefab')
+    dst = os.path.join(MINECRAFT_SERVERS_DIR, server_name)
+
+    if not os.path.isdir(src):
+        return jsonify({'success': False, 'error': 'Шаблон не найден'}), 500
+    if os.path.exists(dst):
+        return jsonify({'success': False, 'error': 'Сервер с таким именем уже существует'}), 400
+
+    try:
+        shutil.copytree(src, dst)
+        return jsonify({'success': True, 'message': f'Сервер {server_name} создан!'})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+def update_bluemap_config(server_name):
+    """
+    Заменяет в core.conf, webapp.conf и webserver.conf путь /server/{server_name}/bluemap/ и web в bluemap config на актуальный server_name
+    """
+    config_dir = os.path.join(MINECRAFT_SERVERS_DIR, server_name, "neoforge-server", "config", "bluemap")
+    replacements = {
+        "core.conf": [
+            ('data: "/server/', 'data: "/server/{server_name}/bluemap/')
+        ],
+        "webapp.conf": [
+            ('webroot: "/server/', 'webroot: "/server/{server_name}/bluemap/web')
+        ],
+        "webserver.conf": [
+            ('webroot: "/server/', 'webroot: "/server/{server_name}/bluemap/web')
+        ]
+    }
+
+    for filename, patterns in replacements.items():
+        filepath = os.path.join(config_dir, filename)
+        if not os.path.isfile(filepath):
+            continue
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                content = f.read()
+            for oldpat, fullpat in patterns:
+                # Универсальная замена любого server_name на актуальный
+                import re
+                # Соответствует data: "/server/что-угодно/bluemap/ или webroot: "/server/что-угодно/bluemap/web
+                content = re.sub(
+                    rf'{oldpat}[^/]+/bluemap(/web)?',
+                    f'{oldpat}{server_name}/bluemap\\1',
+                    content
+                )
+            with open(filepath, "w", encoding="utf-8") as f:
+                f.write(content)
+        except Exception as ex:
+            print(f"Не удалось обновить {filepath}: {ex}")
+
 def run_server_script(server_name, script_name):
     script_path = os.path.join(MINECRAFT_SERVERS_DIR, server_name, "ramdisk-minecraft", script_name)
     if not os.path.isfile(script_path) or not os.access(script_path, os.X_OK):
         return False, "Файл не найден или не исполняемый."
-    if is_server_busy(server_name):
-        return False, "Скрипт уже выполняется."
     ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     action = script_name.replace('.sh', '')
     log_file = os.path.join(LOGS_DIR, f"{server_name}_{action}_{ts}.log")
     try:
         with open(log_file, "w") as f:
             result = subprocess.run([script_path], stdout=f, stderr=subprocess.STDOUT, check=False)
+        # если это stop — сбросить busy-флаг
+        if action == "stop":
+            server_processes.pop(server_name, None)
         return True, f"Скрипт выполнен (код {result.returncode}). Лог сохранён."
     except Exception as e:
         return False, f"Ошибка запуска: {e}"
+        
+def patch_bluemap_configs(server_name):
+    """
+    Меняет одну строку в каждом bluemap-конфиге, подставляя актуальное имя сервера.
+    """
+    import os
+
+    config_dir = os.path.join(
+        MINECRAFT_SERVERS_DIR, server_name, "neoforge-server", "config", "bluemap"
+    )
+    patch_list = [
+        {
+            "filename": "core.conf",
+            "key": "data:",
+            "value": f'data: "/server/{server_name}/bluemap/"'
+        },
+        {
+            "filename": "webapp.conf",
+            "key": "webroot:",
+            "value": f'webroot: "/server/{server_name}/bluemap/web"'
+        },
+        {
+            "filename": "webserver.conf",
+            "key": "webroot:",
+            "value": f'webroot: "/server/{server_name}/bluemap/web"'
+        },
+        {
+            "filename": os.path.join("storages", "file.conf"),
+            "key": "root:",
+            "value": f'root: "/server/{server_name}/bluemap/web/maps"'
+        },
+    ]
+
+    for patch in patch_list:
+        path = os.path.join(config_dir, patch["filename"])
+        if not os.path.isfile(path):
+            continue
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                lines = f.readlines()
+            with open(path, "w", encoding="utf-8") as f:
+                for line in lines:
+                    if line.strip().startswith(patch["key"]):
+                        f.write(patch["value"] + "\n")
+                    else:
+                        f.write(line)
+        except Exception as ex:
+            print(f"Ошибка обновления {path}: {ex}")
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8390, debug=True)
+    app.run(host='0.0.0.0', port=8390, debug=True) 
