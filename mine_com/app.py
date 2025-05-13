@@ -112,6 +112,7 @@ def logout():
     flash('Вы вышли из системы', 'success')
     return redirect(url_for('login'))
 
+
 @app.route('/server/<server_name>/rcon', methods=['POST'])
 def rcon_command(server_name):
     if 'logged_in' not in session or not session['logged_in']:
@@ -122,17 +123,36 @@ def rcon_command(server_name):
     if not command:
         return jsonify({'success': False, 'error': 'Команда не указана'}), 400
 
-    # Прочитай параметры RCON для сервера (лучше их хранить в конфиге или файле)
-    rcon_host = '127.0.0.1'  # или другой, если контейнер
-    rcon_port = 25575         # стандартный или твой порт
-    rcon_password = 'rcon_password'  # возьми из server.properties
-
     try:
+        rcon_host, rcon_port, rcon_password = get_rcon_params(server_name)
         with RconClient(rcon_host, rcon_port, passwd=rcon_password, timeout=5) as client:
             response = client.run(command)
         return jsonify({'success': True, 'response': response})
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
+
+def get_rcon_params(server_name):
+    """
+    Возвращает (host, port, password) для RCON из server.properties конкретного сервера.
+    Host почти всегда localhost, порт и пароль берутся из server.properties.
+    """
+    prop_path = os.path.join(MINECRAFT_SERVERS_DIR, server_name, "ramdisk-minecraft", "server.properties")
+    rcon_port = 25575  # default
+    rcon_password = None
+    if not os.path.isfile(prop_path):
+        raise Exception("server.properties not found")
+    with open(prop_path, "r", encoding="utf-8", errors="replace") as f:
+        for line in f:
+            line = line.strip()
+            if line.startswith("rcon.port="):
+                try:
+                    rcon_port = int(line.split("=",1)[1])
+                except Exception: pass
+            elif line.startswith("rcon.password="):
+                rcon_password = line.split("=",1)[1]
+    if not rcon_password:
+        raise Exception("rcon.password not set in server.properties")
+    return ("127.0.0.1", rcon_port, rcon_password)
 
 @app.route('/server_status')
 def server_status():
