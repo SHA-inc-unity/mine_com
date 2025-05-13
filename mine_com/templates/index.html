@@ -19,7 +19,6 @@
             font-weight: bold;
             z-index: 10;
         }
-        /* Расширенное расстояние между миниметриками */
         .small-metrics {
             display: flex;
             gap: 32px;
@@ -42,13 +41,10 @@
         <button onclick="hideCreateServerModal()">Отмена</button>
         <span id="create-server-status"></span>
     </div>
-    <ul class="server-list" id="server-list">
-        <!-- Серверы будут наполняться динамически JS -->
-    </ul>
+    <ul class="server-list" id="server-list"></ul>
 
     <h2>Системные метрики</h2>
     <div class="metrics-container">
-        <!-- CPU -->
         <div class="metric-item">
             <div class="progress-circle" id="cpu-circle">
                 <svg>
@@ -59,7 +55,6 @@
             <div class="metric-value" id="cpu-percent">--%</div>
             <div class="metric-label">Использование CPU</div>
         </div>
-        <!-- Memory -->
         <div class="metric-item">
             <div class="progress-circle" id="memory-circle">
                 <svg>
@@ -70,7 +65,6 @@
             <div class="metric-value" id="memory-percent">--%</div>
             <div class="metric-label">Использование памяти</div>
         </div>
-        <!-- Root Disk -->
         <div class="metric-item">
             <div class="progress-circle" id="disk-root-circle">
                 <svg>
@@ -81,7 +75,6 @@
             <div class="metric-value" id="disk-root-percent">--%</div>
             <div class="metric-label">Диск (root)</div>
         </div>
-        <!-- RAID Disk -->
         <div class="metric-item">
             <div class="progress-circle" id="disk-raid-circle">
                 <svg>
@@ -118,7 +111,6 @@
     </div>
 
     <script>
-        // Управление автообновлением серверов
         let autoRefreshEnabled = true;
         let openedPropertiesPanel = null;
         let openedJvmArgsPanel = null;
@@ -127,8 +119,9 @@
         let currentConfigPath = '';
         let selectedConfigFile = '';
 
-        // Для хранения предыдущих значений миниметрик
+        // Для хранения предыдущих и последних показанных значений миниметрик
         const previousMiniMetrics = {};
+        const lastShownMiniMetrics = {};
 
         function openConfigManager(server) {
             currentConfigServer = server;
@@ -244,7 +237,6 @@
             servers.forEach(server => {
                 ul.appendChild(renderServerItem(server));
             });
-            // Восстановление редакторов как прежде
             if (openedPropertiesPanel) {
                 setTimeout(() => toggleProperties(openedPropertiesPanel, true), 100);
             }
@@ -313,7 +305,6 @@
 
         // --- Миниметрики обновляются отдельно ---
         function fetchAndUpdateMiniMetrics() {
-            // Получаем текущий список серверов (имена) из DOM
             const serverItems = document.querySelectorAll('.server-item');
             serverItems.forEach(item => {
                 const server = item.dataset.server;
@@ -328,15 +319,25 @@
                         if (data.ramdisk_percent !== undefined) {
                             updateMiniMetricIfChanged('ramdisk', server, data.ramdisk_percent);
                         }
+                    })
+                    .catch(() => {
+                        // При ошибке fetch оставляем последнее значение на экране (ничего не делаем)
+                        // Можно добавить вывод "--%" если нужно явно
                     });
             });
         }
         function updateMiniMetricIfChanged(type, server, percent) {
             if (!previousMiniMetrics[server]) previousMiniMetrics[server] = {};
+            if (!lastShownMiniMetrics[server]) lastShownMiniMetrics[server] = {};
+
             const prev = previousMiniMetrics[server][type];
-            if (prev !== percent) {
+            if (prev !== percent && percent !== undefined && percent !== null) {
                 setMiniMetric(type, server, percent);
                 previousMiniMetrics[server][type] = percent;
+                lastShownMiniMetrics[server][type] = percent;
+            } else {
+                // Значение не изменилось, выводим последнее показанное
+                setMiniMetric(type, server, lastShownMiniMetrics[server][type]);
             }
         }
         function setMiniMetric(type, server, percent) {
@@ -571,17 +572,13 @@
         }
 
         setInterval(updateResources, 2500);
-
-        // Миниметрики обновляются отдельно
         setInterval(fetchAndUpdateMiniMetrics, 2000);
-
         setInterval(() => {
             if (autoRefreshEnabled) updateServerStatus();
         }, 2000);
 
         updateResources();
         fetchServersAndRender();
-        // Первый раз также сразу запустим обновление миниметрик
         fetchAndUpdateMiniMetrics();
     </script>
 </body>
