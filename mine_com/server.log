@@ -44604,3 +44604,1644 @@ Slab:  95.165.27.159 - - [06/May/2025 18:15:26] "GET /server/neoforge_server/met
 95.165.27.159 - - [13/May/2025 03:08:03] "GET /server/vanilla/metrics HTTP/1.1" 200 -
 95.165.27.159 - - [13/May/2025 03:08:03] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
 95.165.27.159 - - [13/May/2025 03:08:03] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:04] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:04] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:04] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:04] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:04] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:05] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:05] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:05] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:05] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:06] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:06] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:06] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:07] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:07] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:07] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:07] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:08] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:08] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:08] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:08] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:09] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:09] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:09] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:09] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:10] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:10] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:10] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:10] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:11] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:11] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:11] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:11] "GET /resources HTTP/1.1" 200 -
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+95.165.27.159 - - [13/May/2025 03:08:12] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:12] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:12] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:12] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:13] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:13] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:13] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:14] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:14] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:14] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:14] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:15] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:15] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:15] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:15] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:15] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:16] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:16] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:16] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:17] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:17] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:17] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:17] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:18] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:18] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:18] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:18] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:19] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:19] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:19] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:19] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:20] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:20] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:20] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:20] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:21] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:21] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:21] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:21] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:22] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:22] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:22] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:22] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:23] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:23] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:23] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:24] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:24] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:24] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:24] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:24] "GET /server_status HTTP/1.1" 200 -
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+95.165.27.159 - - [13/May/2025 03:08:25] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:25] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:25] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:25] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:26] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:26] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:26] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:27] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:27] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:27] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:27] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:28] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:28] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:28] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:28] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:29] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:29] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:29] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:29] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:30] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:30] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:30] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:30] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:31] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:31] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:31] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:31] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:32] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:32] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:32] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:32] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:33] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:33] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:33] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:34] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:34] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:34] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:34] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:34] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:35] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:35] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:35] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:35] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:36] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:36] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:36] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:37] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:37] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:37] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:37] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:38] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+95.165.27.159 - - [13/May/2025 03:08:38] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:38] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:38] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:39] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:39] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:39] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:39] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:40] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:40] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:40] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:40] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:41] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:41] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:41] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:41] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:42] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:42] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:42] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:42] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:43] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:43] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:43] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:44] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:44] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:44] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:44] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:44] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:45] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:45] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:45] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:45] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:46] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:46] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:46] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:47] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:47] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:47] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:47] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:48] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:48] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:48] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:48] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:49] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:49] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:49] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:49] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:50] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:50] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:50] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:50] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:51] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:51] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:51] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:51] "GET /resources HTTP/1.1" 200 -
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+95.165.27.159 - - [13/May/2025 03:08:52] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:52] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:52] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:52] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:53] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:53] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:53] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:54] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:54] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:54] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:54] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:54] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:55] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:55] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:55] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:55] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:56] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:56] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:56] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:57] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:57] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:57] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:57] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:58] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:58] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:58] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:58] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:59] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:59] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:59] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:08:59] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:00] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:00] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:00] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:00] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:01] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:01] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:01] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:01] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:02] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:02] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:02] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:02] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:03] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:03] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:03] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:04] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:04] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:04] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:04] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:04] "GET /server_status HTTP/1.1" 200 -
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+95.165.27.159 - - [13/May/2025 03:09:05] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:05] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:05] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:05] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:06] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:06] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:06] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:07] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:07] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:07] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:07] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:08] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:08] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:08] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:08] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:09] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:09] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:09] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:09] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:10] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:10] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:10] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:10] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:11] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:11] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:11] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:11] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:12] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:12] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:12] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:12] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:13] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:13] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:13] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:14] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:14] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:14] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:14] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:14] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:15] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:15] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:15] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:15] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:16] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:16] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:16] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:17] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:17] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:17] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:17] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:18] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+95.165.27.159 - - [13/May/2025 03:09:18] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:18] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:18] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:19] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:19] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:19] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:19] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:20] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:20] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:20] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:20] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:21] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:21] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:21] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:21] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:22] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:22] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:22] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:22] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:23] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:23] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:23] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:24] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:24] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:24] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:24] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:24] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:25] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:25] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:25] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:25] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:26] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:26] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:26] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:27] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:27] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:27] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:27] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:28] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:28] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:28] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:28] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:29] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:29] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:29] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:29] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:30] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:30] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:30] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:30] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:31] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:31] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:31] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:31] "GET /resources HTTP/1.1" 200 -
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+95.165.27.159 - - [13/May/2025 03:09:32] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:32] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:32] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:32] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:33] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:33] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:33] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:34] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:34] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:34] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:34] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:34] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:35] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:35] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:35] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:36] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:36] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:36] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:36] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:37] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:37] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:37] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:37] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:38] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:38] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:38] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:38] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:39] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:39] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:39] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:39] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:40] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:40] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:40] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:41] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:41] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:41] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:41] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:42] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:42] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:42] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:42] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:43] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:43] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:43] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:43] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:44] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:44] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:44] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:44] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:45] "GET /server_status HTTP/1.1" 200 -
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+95.165.27.159 - - [13/May/2025 03:09:45] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:45] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:46] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:46] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:46] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:46] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:47] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:47] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:47] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:47] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:48] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:48] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:48] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:49] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:49] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:49] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:49] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:49] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:50] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:50] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:50] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:51] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:51] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:51] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:51] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:52] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:52] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:52] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:53] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:53] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:53] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:54] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:54] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:54] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:55] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:55] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:55] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:55] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:55] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:56] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:56] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:56] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:56] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:57] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:57] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:57] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:58] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:58] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:58] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:58] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:59] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+95.165.27.159 - - [13/May/2025 03:09:59] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:59] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:09:59] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:00] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:00] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:00] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:00] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:01] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:01] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:01] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:01] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:02] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:02] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:02] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:02] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:03] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:03] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:03] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:03] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:04] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:04] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:04] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:05] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:05] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:05] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:05] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:05] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:06] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:06] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:06] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:06] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:07] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:07] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:07] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:08] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:08] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:08] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:08] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:09] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:09] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:09] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:09] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:10] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:10] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:10] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:10] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:11] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:11] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:11] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:11] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:12] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:12] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:12] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:12] "GET /resources HTTP/1.1" 200 -
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+95.165.27.159 - - [13/May/2025 03:10:13] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:13] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:13] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:13] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:14] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:14] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:14] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:15] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:15] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:15] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:15] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:15] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:16] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:16] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:16] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:16] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:17] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:17] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:17] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:18] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:18] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:18] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:18] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:19] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:19] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:19] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:19] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:20] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:20] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:20] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:20] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:21] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:21] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:21] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:21] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:22] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:22] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:22] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:22] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:23] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:23] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:23] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:23] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:24] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:24] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:24] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:25] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:25] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:25] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:25] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:25] "GET /server_status HTTP/1.1" 200 -
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+[vanilla] raid_world_path=/mnt/raid/minecraft/vanilla/world exists=True size=300150878
+[vanilla] ramdisk_percent=0.0 root_usage_percent=0.0 raid_usage_percent=0.15
+[neoforge_server] ramdisk_path=/mnt/ramdisk/neoforge_server_world exists=True size=8871949
+[neoforge_server] raid_world_path=/mnt/raid/minecraft/neoforge_server/world exists=True size=8871949
+[neoforge_server] ramdisk_percent=0.0 root_usage_percent=0.01 raid_usage_percent=0.0
+[vanilla] ramdisk_path=/mnt/ramdisk/vanilla_world exists=True size=0
+95.165.27.159 - - [13/May/2025 03:10:26] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:26] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:26] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:26] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:27] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:27] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:27] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:28] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:28] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:28] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:28] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:29] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:29] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:29] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:29] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:30] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:30] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:30] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:30] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:31] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:31] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:31] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:31] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:32] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:32] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:32] "GET /server_status HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:32] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:33] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:33] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:33] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:33] "GET /resources HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:34] "GET /server/vanilla/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:34] "GET /server/neoforge_server/metrics HTTP/1.1" 200 -
+95.165.27.159 - - [13/May/2025 03:10:34] "GET /resources HTTP/1.1" 200 -
