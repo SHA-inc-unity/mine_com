@@ -7,6 +7,7 @@ import glob
 import re
 import zipfile
 from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
+from mcipc.rcon.je import Client as RconClient
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey123'
@@ -110,6 +111,28 @@ def logout():
     session.pop('logged_in', None)
     flash('Вы вышли из системы', 'success')
     return redirect(url_for('login'))
+
+@app.route('/server/<server_name>/rcon', methods=['POST'])
+def rcon_command(server_name):
+    if 'logged_in' not in session or not session['logged_in']:
+        return jsonify({'success': False, 'error': 'Unauthorized'}), 401
+
+    data = request.get_json()
+    command = data.get('command', '').strip()
+    if not command:
+        return jsonify({'success': False, 'error': 'Команда не указана'}), 400
+
+    # Прочитай параметры RCON для сервера (лучше их хранить в конфиге или файле)
+    rcon_host = '127.0.0.1'  # или другой, если контейнер
+    rcon_port = 25575         # стандартный или твой порт
+    rcon_password = 'rcon_password'  # возьми из server.properties
+
+    try:
+        with RconClient(rcon_host, rcon_port, passwd=rcon_password, timeout=5) as client:
+            response = client.run(command)
+        return jsonify({'success': True, 'response': response})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
 
 @app.route('/server_status')
 def server_status():

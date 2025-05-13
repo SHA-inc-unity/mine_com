@@ -85,12 +85,21 @@
     </div>
     <!-- Модалка для логов контейнера -->
     <div id="dockerLogModal" style="display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.3); z-index:9999; justify-content:center; align-items:center;">
-    <div style="background:#fff; min-width:600px; max-width:900px; border-radius:10px; padding:20px 24px; box-shadow:0 8px 32px rgba(0,0,0,0.15); display:flex; flex-direction:column; position:relative;">
-        <h3 style="margin-top:0; margin-bottom:10px;">Логи контейнера Docker</h3>
-        <textarea id="docker-log-text" readonly style="width:800px; max-width:100%; height:400px; font-family:monospace; background:#222; color:#eee; border-radius:6px; border:1px solid #333; padding:12px; resize:vertical;"></textarea>
-        <button onclick="closeDockerLogModal()" style="position:absolute; right:16px; top:16px; background:#e54; color:#fff; border:none; border-radius:6px; padding:3px 10px; font-size:18px; cursor:pointer;">×</button>
-        <div id="docker-log-modal-status" style="color:red; margin-top:8px;"></div>
+        <div style="background:#fff; min-width:600px; max-width:900px; border-radius:10px; padding:20px 24px; box-shadow:0 8px 32px rgba(0,0,0,0.15); display:flex; flex-direction:column; position:relative;">
+            <h3 style="margin-top:0; margin-bottom:10px;">Логи контейнера Docker</h3>
+            <textarea id="docker-log-text" readonly style="width:800px; max-width:100%; height:400px; font-family:monospace; background:#222; color:#eee; border-radius:6px; border:1px solid #333; padding:12px; resize:vertical;"></textarea>
+            <button onclick="closeDockerLogModal()" style="position:absolute; right:16px; top:16px; background:#e54; color:#fff; border:none; border-radius:6px; padding:3px 10px; font-size:18px; cursor:pointer;">×</button>
+            <div id="docker-log-modal-status" style="color:red; margin-top:8px;"></div>
+        </div>
     </div>
+    <div id="rconModal" style="display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.3); z-index:9999; justify-content:center; align-items:center;">
+        <div style="background:#fff; min-width:480px; max-width:700px; border-radius:10px; padding:20px 24px; box-shadow:0 8px 32px rgba(0,0,0,0.15); display:flex; flex-direction:column; position:relative;">
+            <h3 style="margin-top:0; margin-bottom:10px;">RCON Minecraft</h3>
+            <input id="rcon-command" type="text" style="width:100%;margin-bottom:8px;" placeholder="Введите команду (например, list)">
+            <button onclick="sendRconCommand()" style="margin-bottom:10px;">Отправить</button>
+            <pre id="rcon-response" style="width:100%;height:180px;background:#222;color:#eee;border-radius:6px;padding:10px;overflow-x:auto;white-space:pre-wrap;"></pre>
+            <button onclick="closeRconModal()" style="position:absolute; right:18px; top:14px; background:#e54; color:#fff; border:none; border-radius:6px; padding:3px 10px; font-size:18px; cursor:pointer;">×</button>
+        </div>
     </div>
 
     <h2>Системные метрики</h2>
@@ -168,6 +177,7 @@
         let currentConfigServer = null;
         let currentConfigPath = '';
         let selectedConfigFile = '';
+        let currentRconServer = null;
 
         // --- Модалки для модов и конфигов ---
         function showAddModModal(server) {
@@ -325,6 +335,7 @@
                 <button class="server-btn log-btn" onclick="toggleProperties('${server.name}')">Редактировать server.properties</button>
                 <button class="server-btn log-btn" onclick="toggleJvmArgs('${server.name}')">Редактировать user_jvm_args.txt</button>
                 <button class="server-btn log-btn" onclick="openConfigManager('${server.name}')">Конфиги (config)</button>
+                <button class="server-btn" onclick="openRconModal('${server.name}')">RCON</button>
                 </div>
                 <div class="server-actions-row">
                 <button class="server-btn" onclick="showAddModModal('${server.name}')">Добавить мод</button>
@@ -539,6 +550,35 @@
             document.getElementById('configManagerModal').style.display = '';
             loadConfigTree();
             autoRefreshEnabled = false;
+        }
+        function openRconModal(server) {
+            currentRconServer = server;
+            document.getElementById('rconModal').style.display = 'flex';
+            document.getElementById('rcon-command').value = '';
+            document.getElementById('rcon-response').textContent = '';
+        }
+        function closeRconModal() {
+            document.getElementById('rconModal').style.display = 'none';
+        }
+        function sendRconCommand() {
+            const cmd = document.getElementById('rcon-command').value;
+            if (!cmd) return;
+            fetch(`/server/${currentRconServer}/rcon`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({command: cmd})
+            })
+            .then(r => r.json())
+            .then(d => {
+                if (d.success) {
+                    document.getElementById('rcon-response').textContent = d.response;
+                } else {
+                    document.getElementById('rcon-response').textContent = "Ошибка: " + (d.error || 'нет ответа');
+                }
+            })
+            .catch(() => {
+                document.getElementById('rcon-response').textContent = "Ошибка отправки запроса";
+            });
         }
         function loadConfigTree(path = '') {
             fetch(`/server/${currentConfigServer}/config/list?path=${encodeURIComponent(path)}`)
