@@ -257,3 +257,8 @@ h1, h2 {
     margin-bottom: 4px;
     height: 400px;
 }
+
+#config-tree {
+    max-height: 60vh;
+    overflow-y: auto;
+}
