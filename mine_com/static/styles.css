@@ -270,8 +270,17 @@ h1, h2 {
 }
 
 #config-tree {
-    flex: 1 1 0;
+    max-height: 80vh;
     overflow-y: auto;
-    min-height: 0;
-    max-height: none;
+    scrollbar-width: thin;         /* Firefox */
+    scrollbar-color: #bbb #f9f9f9; /* Firefox */
+}
+/* Для Chrome, Edge, Safari */
+#config-tree::-webkit-scrollbar {
+    width: 8px;
+    background: #f9f9f9;
+}
+#config-tree::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 4px;
 }
