@@ -360,8 +360,9 @@ def create_server():
     if 'logged_in' not in session or not session['logged_in']:
         return jsonify({'success': False, 'error': 'Unauthorized'}), 401
 
-    data = request.get_json()
-    server_name = data.get('server_name', '').strip()
+    # Для multipart/form-data поля достаем так:
+    server_name = request.form.get('server_name', '').strip()
+    zip_file = request.files.get('zip_file')
 
     if not server_name or not server_name.isidentifier():
         return jsonify({'success': False, 'error': 'Некорректное имя сервера'}), 400
@@ -373,9 +374,33 @@ def create_server():
         return jsonify({'success': False, 'error': 'Шаблон не найден'}), 500
     if os.path.exists(dst):
         return jsonify({'success': False, 'error': 'Сервер с таким именем уже существует'}), 400
+    if not zip_file or not zip_file.filename.endswith('.zip'):
+        return jsonify({'success': False, 'error': 'Не выбран zip-файл'}), 400
 
     try:
         shutil.copytree(src, dst)
+        # --- распаковка zip ---
+        extract_to = os.path.join(dst, 'neoforge-server')
+        os.makedirs(extract_to, exist_ok=True)
+        with zipfile.ZipFile(zip_file.stream) as zf:
+            for member in zf.infolist():
+                # Пропускаем папки
+                if member.is_dir():
+                    continue
+                # Формируем путь назначения
+                relpath = os.path.normpath(member.filename)
+                # Безопасность: не позволять выходить за пределы extract_to
+                if '..' in relpath.split(os.sep):
+                    continue
+                target_path = os.path.join(extract_to, relpath)
+                # Если файл уже существует — пропустить
+                if os.path.exists(target_path):
+                    continue
+                # Создать папки, если их нет
+                os.makedirs(os.path.dirname(target_path), exist_ok=True)
+                with zf.open(member) as source, open(target_path, 'wb') as target:
+                    shutil.copyfileobj(source, target)
+        # ---
         return jsonify({'success': True, 'message': f'Сервер {server_name} создан!'})
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500

@@ -37,6 +37,7 @@
     <button onclick="showCreateServerModal()">Создать новый сервер</button>
     <div id="createServerModal" style="display:none;">
         <input id="new-server-name" type="text" placeholder="Имя нового сервера">
+        <input id="server-zip" type="file" accept=".zip">
         <button onclick="createServer()">Создать</button>
         <button onclick="hideCreateServerModal()">Отмена</button>
         <span id="create-server-status"></span>
@@ -401,14 +402,28 @@
         }
         function createServer() {
             const name = document.getElementById('new-server-name').value;
+            const zipFile = document.getElementById('server-zip').files[0];
+            const status = document.getElementById('create-server-status');
+            if (!name) {
+                status.style.color = "red";
+                status.textContent = "Введите имя сервера";
+                return;
+            }
+            if (!zipFile) {
+                status.style.color = "red";
+                status.textContent = "Выберите ZIP-файл";
+                return;
+            }
+            let formData = new FormData();
+            formData.append('server_name', name);
+            formData.append('zip_file', zipFile);
+
             fetch('/create_server', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({server_name: name})
+                body: formData
             })
             .then(r => r.json())
             .then(d => {
-                const status = document.getElementById('create-server-status');
                 if (d.success) {
                     status.style.color = "green";
                     status.textContent = "Сервер создан!";
