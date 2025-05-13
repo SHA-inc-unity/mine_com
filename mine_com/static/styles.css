@@ -259,6 +259,6 @@ h1, h2 {
 }
 
 #config-tree {
-    max-height: 60vh;
+    max-height: 80vh;
     overflow-y: auto;
 }
