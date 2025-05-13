@@ -313,15 +313,11 @@ def get_version():
                 break
 
         if last_global_index is not None:
-            # major — номер последнего global (считаем global до и включая найденный)
+            # major — количество global до и включая найденный
             major = sum(1 for m in log if "global" in m.lower() and log.index(m) <= last_global_index)
-
-            # after_global — список коммитов после последнего global (от новых к старым)
             after_global = log[:last_global_index]
-
-            # minor — сколько big среди них (ищется в любом месте строки)
+            # minor — сколько big среди них
             minor = sum(1 for m in after_global if "big" in m.lower())
-
             # patch — сколько коммитов после последнего big (или после global, если big нет)
             last_big_index = None
             for i, msg in enumerate(after_global):
@@ -333,10 +329,22 @@ def get_version():
             else:
                 patch = len(after_global)
         else:
-            # Если нет global-коммита, всё — patch
-            major = 0
-            minor = 0
-            patch = len(log)
+            # Нет global — ищем последний big
+            last_big_index = None
+            for i, msg in enumerate(log):
+                if "big" in msg.lower():
+                    last_big_index = i
+                    break
+            if last_big_index is not None:
+                major = 0
+                # minor — номер последнего big (от новых к старым, начиная с 1)
+                minor = sum(1 for m in log if "big" in m.lower() and log.index(m) <= last_big_index)
+                patch = last_big_index
+            else:
+                # Нет ни global, ни big
+                major = 0
+                minor = 0
+                patch = len(log)
 
         version = f"{major}.{minor}.{patch}"
         return jsonify({"version": version})
