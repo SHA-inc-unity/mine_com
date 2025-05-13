@@ -330,14 +330,17 @@
             if (!previousMiniMetrics[server]) previousMiniMetrics[server] = {};
             if (!lastShownMiniMetrics[server]) lastShownMiniMetrics[server] = {};
 
-            const prev = previousMiniMetrics[server][type];
-            if (prev !== percent && percent !== undefined && percent !== null) {
+            if (percent !== undefined && percent !== null && percent !== "N/A") {
+                // Новое значение — показать и запомнить
                 setMiniMetric(type, server, percent);
                 previousMiniMetrics[server][type] = percent;
                 lastShownMiniMetrics[server][type] = percent;
-            } else {
-                // Значение не изменилось, выводим последнее показанное
+            } else if (lastShownMiniMetrics[server][type] !== undefined && lastShownMiniMetrics[server][type] !== null) {
+                // Нет нового значения, но есть последнее — показать последнее
                 setMiniMetric(type, server, lastShownMiniMetrics[server][type]);
+            } else {
+                // Нет значения вообще — показать --%
+                setMiniMetric(type, server, null);
             }
         }
         function setMiniMetric(type, server, percent) {
@@ -348,9 +351,14 @@
             const radius = 22;
             const circumference = 2 * Math.PI * radius;
             bar.setAttribute('stroke-dasharray', circumference);
-            bar.setAttribute('stroke-dashoffset', circumference - ((percent||0) / 100 * circumference));
+            bar.setAttribute(
+                'stroke-dashoffset',
+                percent !== undefined && percent !== null
+                    ? circumference - (percent / 100 * circumference)
+                    : circumference
+            );
             if (text)
-                text.textContent = (percent !== undefined && percent !== null && percent !== "N/A") ? `${percent}%` : '--%';
+                text.textContent = (percent !== undefined && percent !== null) ? `${percent}%` : '--%';
         }
         // --- /Миниметрики ---
 
