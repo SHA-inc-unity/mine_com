@@ -561,7 +561,9 @@
             document.getElementById('rconModal').style.display = 'none';
         }
         function sendRconCommand() {
-            const cmd = document.getElementById('rcon-command').value;
+            const cmdInput = document.getElementById('rcon-command');
+            const consoleBox = document.getElementById('rcon-response');
+            const cmd = cmdInput.value;
             if (!cmd) return;
             fetch(`/server/${currentRconServer}/rcon`, {
                 method: 'POST',
@@ -570,14 +572,31 @@
             })
             .then(r => r.json())
             .then(d => {
+                // 1. Показываем команду в консоли
+                let prev = consoleBox.textContent.trim();
+                if (prev) prev += "\n";
+                prev += `> ${cmd}`;
+                // 2. Показываем ответ (или ошибку)
                 if (d.success) {
-                    document.getElementById('rcon-response').textContent = d.response;
+                    prev += "\n" + (d.response || "(нет ответа)");
                 } else {
-                    document.getElementById('rcon-response').textContent = "Ошибка: " + (d.error || 'нет ответа');
+                    prev += "\nОшибка: " + (d.error || 'нет ответа');
                 }
+                consoleBox.textContent = prev;
+                // 3. Скроллим вниз (если переполнено)
+                consoleBox.scrollTop = consoleBox.scrollHeight;
+                // 4. Очищаем строку ввода
+                cmdInput.value = '';
+                cmdInput.focus();
             })
             .catch(() => {
-                document.getElementById('rcon-response').textContent = "Ошибка отправки запроса";
+                let prev = consoleBox.textContent.trim();
+                if (prev) prev += "\n";
+                prev += `> ${cmd}\nОшибка отправки запроса`;
+                consoleBox.textContent = prev;
+                consoleBox.scrollTop = consoleBox.scrollHeight;
+                cmdInput.value = '';
+                cmdInput.focus();
             });
         }
         function loadConfigTree(path = '') {
