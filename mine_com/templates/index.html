@@ -342,21 +342,7 @@
             }
         }
         function setMiniMetric(type, server, percent) {
-            const svg = document.getElementById(`mini-${type}-circle-${server}`);
-            if (!svg) return;
-            const bar = svg.querySelector('.mini-progress-bar');
-            const text = document.getElementById(`mini-${type}-percent-${server}`);
-            const radius = 22;
-            const circumference = 2 * Math.PI * radius;
-            bar.setAttribute('stroke-dasharray', circumference);
-            bar.setAttribute(
-                'stroke-dashoffset',
-                percent !== undefined && percent !== null
-                    ? circumference - (percent / 100 * circumference)
-                    : circumference
-            );
-            if (text)
-                text.textContent = (percent !== undefined && percent !== null) ? `${percent}%` : '--%';
+            
         }
         // --- /Миниметрики ---
 
