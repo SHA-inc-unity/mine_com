@@ -33,7 +33,7 @@ h1, h2 {
 
 .small-metrics {
     display: flex;
-    gap: 12px;
+    gap: 32px; /* увеличено, было 12px */
     margin-left: auto;
 }
 
