@@ -505,6 +505,14 @@
 
             xhr.send(formData);
         }
+        function openConfigManager(server) {
+            currentConfigServer = server;
+            currentConfigPath = '';
+            selectedConfigFile = '';
+            document.getElementById('configManagerModal').style.display = '';
+            loadConfigTree();
+            autoRefreshEnabled = false;
+        }
         function showDockerLog(server) {
             fetch(`/server/${server}/docker_log`)
                 .then(r => r.json())
