@@ -300,20 +300,13 @@ def server_metrics(server_name):
 @app.route('/get_version')
 def get_version():
     try:
-        # Получаем список всех коммитов: хэш, дата, сообщение
         log = subprocess.check_output(
             ["git", "log", "--pretty=format:%H|%s"],
             encoding="utf-8"
         ).splitlines()
 
-        major = 0
-        minor = 0
-        patch = 0
-
+        # Поиск индекса последнего global-коммита
         last_global_index = None
-        last_big_index = None
-
-        # 1. Найти последний global
         for i, line in enumerate(log):
             _, msg = line.split("|", 1)
             if "global" in msg.lower():
@@ -321,26 +314,27 @@ def get_version():
                 break
 
         if last_global_index is not None:
-            # Считаем major
-            major = sum(1 for _, msg in (l.split("|", 1) for l in log[:last_global_index+1]) if "global" in msg.lower())
-            # Считаем big после последнего global
-            for i in range(last_global_index, -1, -1):
-                _, msg = log[i].split("|", 1)
+            # major — сколько global до этого места (включая его)
+            major = sum(1 for _, msg in (l.split("|", 1) for l in log) if "global" in msg.lower() and log.index(f"{_}|{msg}") <= last_global_index)
+            # Получаем все коммиты после последнего global (от новых к старым)
+            after_global = log[:last_global_index]
+            # minor — сколько big среди них
+            minor = sum(1 for _, msg in (l.split("|", 1) for l in after_global) if "big" in msg.lower())
+            # patch — от последнего big до global (или от global если big нет)
+            last_big_index = None
+            for i, line in enumerate(after_global):
+                _, msg = line.split("|", 1)
                 if "big" in msg.lower():
                     last_big_index = i
                     break
-
             if last_big_index is not None:
-                # minor — количество big после global (до первого big)
-                minor = sum(1 for _, msg in (l.split("|", 1) for l in log[last_global_index:last_big_index+1]) if "big" in msg.lower())
-                # patch — количество коммитов после последнего big до global
-                patch = last_big_index - 0
+                patch = last_big_index
             else:
-                # Нет ни одного big после global
-                minor = 0
-                patch = last_global_index - 0
+                patch = len(after_global)
         else:
-            # Нет ни одного global — major=0, minor=0, patch=количество коммитов
+            # Нет global — всё считается как patch
+            major = 0
+            minor = 0
             patch = len(log)
 
         version = f"{major}.{minor}.{patch}"
