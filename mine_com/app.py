@@ -315,34 +315,28 @@ def get_version():
             encoding="utf-8"
         ).splitlines()
 
-        last_global_index = None
-        for i, msg in enumerate(log):
-            if "global" in msg.lower():
-                last_global_index = i
-                break
-
-        if last_global_index is not None:
-            major = sum(1 for m in log if "global" in m.lower() and log.index(m) <= last_global_index)
+        # Найти все индексы global
+        global_indices = [i for i, msg in enumerate(log) if "global" in msg.lower()]
+        if global_indices:
+            last_global_index = global_indices[0]
+            major = len(global_indices)
+            # minor = count of "big" after last "global"
             after_global = log[:last_global_index]
-            minor = sum(1 for m in after_global if "big" in m.lower())
-            last_big_index = None
-            for i, msg in enumerate(after_global):
-                if "big" in msg.lower():
-                    last_big_index = i
-                    break
-            if last_big_index is not None:
+            big_indices = [i for i, msg in enumerate(after_global) if "big" in msg.lower()]
+            if big_indices:
+                last_big_index = big_indices[0]
+                minor = len(big_indices)
                 patch = last_big_index
             else:
+                minor = 0
                 patch = len(after_global)
         else:
-            last_big_index = None
-            for i, msg in enumerate(log):
-                if "big" in msg.lower():
-                    last_big_index = i
-                    break
-            if last_big_index is not None:
+            # Нет global, ищем big
+            big_indices = [i for i, msg in enumerate(log) if "big" in msg.lower()]
+            if big_indices:
+                last_big_index = big_indices[0]
                 major = 0
-                minor = sum(1 for m in log if "big" in m.lower() and log.index(m) <= last_big_index)
+                minor = len(big_indices)
                 patch = last_big_index
             else:
                 major = 0
