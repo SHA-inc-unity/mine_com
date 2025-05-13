@@ -296,6 +296,59 @@ def server_metrics(server_name):
         "ramdisk_percent": ramdisk_percent
     })
 
+
+@app.route('/get_version')
+def get_version():
+    try:
+        # Получаем список всех коммитов: хэш, дата, сообщение
+        log = subprocess.check_output(
+            ["git", "log", "--pretty=format:%H|%s"],
+            encoding="utf-8"
+        ).splitlines()
+
+        major = 0
+        minor = 0
+        patch = 0
+
+        last_global_index = None
+        last_big_index = None
+
+        # 1. Найти последний global
+        for i, line in enumerate(log):
+            _, msg = line.split("|", 1)
+            if "global" in msg.lower():
+                last_global_index = i
+                break
+
+        if last_global_index is not None:
+            # Считаем major
+            major = sum(1 for _, msg in (l.split("|", 1) for l in log[:last_global_index+1]) if "global" in msg.lower())
+            # Считаем big после последнего global
+            for i in range(last_global_index, -1, -1):
+                _, msg = log[i].split("|", 1)
+                if "big" in msg.lower():
+                    last_big_index = i
+                    break
+
+            if last_big_index is not None:
+                # minor — количество big после global (до первого big)
+                minor = sum(1 for _, msg in (l.split("|", 1) for l in log[last_global_index:last_big_index+1]) if "big" in msg.lower())
+                # patch — количество коммитов после последнего big до global
+                patch = last_big_index - 0
+            else:
+                # Нет ни одного big после global
+                minor = 0
+                patch = last_global_index - 0
+        else:
+            # Нет ни одного global — major=0, minor=0, patch=количество коммитов
+            patch = len(log)
+
+        version = f"{major}.{minor}.{patch}"
+        return jsonify({"version": version})
+
+    except Exception as ex:
+        return jsonify({"error": str(ex)}), 500
+
 @app.route('/create_server', methods=['POST'])
 def create_server():
     if 'logged_in' not in session or not session['logged_in']:

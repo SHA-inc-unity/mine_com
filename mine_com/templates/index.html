@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft Servers Monitor</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="static/styles.css">
+    <style>
+        /* Для версии */
+        #version-box {
+            position: absolute;
+            top: 12px;
+            right: 140px;
+            font-size: 14px;
+            background: #f6f6f6;
+            border-radius: 6px;
+            padding: 4px 12px;
+            color: #333;
+            border: 1px solid #e2e2e2;
+            font-weight: bold;
+            z-index: 10;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
         <h1>Minecraft Servers Monitoring</h1>
-        <a href="{{ url_for('logout') }}" class="logout-btn">Выход</a>
+        <a href="/logout" class="logout-btn">Выход</a>
+        <span id="version-box">Версия: ...</span>
     </div>
-    
+
     <h2>Список серверов</h2>
     <button onclick="showCreateServerModal()">Создать новый сервер</button>
     <div id="createServerModal" style="display:none;">
@@ -20,99 +37,8 @@
         <button onclick="hideCreateServerModal()">Отмена</button>
         <span id="create-server-status"></span>
     </div>
-    <ul class="server-list">
-      {% for server in servers %}
-          <li class="server-item" data-server="{{ server.name }}">
-              <div class="server-main-info">
-                  <span class="server-name">{{ server.name }}</span>
-                  <span class="server-toggle {{ 'active' if server.active else 'inactive' }}">
-                      {{ 'Активен' if server.active else 'Неактивен' }}
-                  </span>
-                  <div class="small-metrics">
-                      <!-- CPU -->
-                      <div class="mini-metric-item">
-                          <svg class="mini-progress-circle" id="mini-cpu-circle-{{server.name}}" width="54" height="54">
-                              <circle class="mini-progress-background" cx="27" cy="27" r="22"></circle>
-                              <circle class="mini-progress-bar" cx="27" cy="27" r="22"></circle>
-                              <text x="27" y="32" text-anchor="middle" font-size="10" class="mini-metric-value" id="mini-cpu-percent-{{server.name}}">--%</text>
-                          </svg>
-                          <span class="mini-metric-label">CPU</span>
-                      </div>
-                      <!-- RAM -->
-                      <div class="mini-metric-item">
-                          <svg class="mini-progress-circle" id="mini-memory-circle-{{server.name}}" width="54" height="54">
-                              <circle class="mini-progress-background" cx="27" cy="27" r="22"></circle>
-                              <circle class="mini-progress-bar" cx="27" cy="27" r="22"></circle>
-                              <text x="27" y="32" text-anchor="middle" font-size="10" class="mini-metric-value" id="mini-memory-percent-{{server.name}}">--%</text>
-                          </svg>
-                          <span class="mini-metric-label">RAM</span>
-                      </div>
-                      <!-- Root disk usage -->
-                      <div class="mini-metric-item">
-                          <svg class="mini-progress-circle" id="mini-rootusage-circle-{{server.name}}" width="54" height="54">
-                              <circle class="mini-progress-background" cx="27" cy="27" r="22"></circle>
-                              <circle class="mini-progress-bar" cx="27" cy="27" r="22"></circle>
-                              <text x="27" y="32" text-anchor="middle" font-size="10" class="mini-metric-value" id="mini-rootusage-percent-{{server.name}}">--%</text>
-                          </svg>
-                          <span class="mini-metric-label">Root</span>
-                      </div>
-                      <!-- RAID disk usage -->
-                      <div class="mini-metric-item">
-                          <svg class="mini-progress-circle" id="mini-raidusage-circle-{{server.name}}" width="54" height="54">
-                              <circle class="mini-progress-background" cx="27" cy="27" r="22"></circle>
-                              <circle class="mini-progress-bar" cx="27" cy="27" r="22"></circle>
-                              <text x="27" y="32" text-anchor="middle" font-size="10" class="mini-metric-value" id="mini-raidusage-percent-{{server.name}}">--%</text>
-                          </svg>
-                          <span class="mini-metric-label">RAID</span>
-                      </div>
-                      {% if server.active %}
-                      <!-- RAMDISK (только если сервер активен) -->
-                      <div class="mini-metric-item">
-                          <svg class="mini-progress-circle" id="mini-ramdisk-circle-{{server.name}}" width="54" height="54">
-                              <circle class="mini-progress-background" cx="27" cy="27" r="22"></circle>
-                              <circle class="mini-progress-bar" cx="27" cy="27" r="22"></circle>
-                              <text x="27" y="32" text-anchor="middle" font-size="10" class="mini-metric-value" id="mini-ramdisk-percent-{{server.name}}">--%</text>
-                          </svg>
-                          <span class="mini-metric-label">RAMDISK</span>
-                      </div>
-                      {% endif %}
-                  </div>
-              </div>
-              <div class="server-actions">
-                  <button class="server-btn"
-                          onclick="serverAction('{{ server.name }}', 'start', this)"
-                          {% if server.active or server.busy %}disabled{% endif %}>
-                      Включить
-                  </button>
-                  <button class="server-btn"
-                          onclick="serverAction('{{ server.name }}', 'stop', this)"
-                          {% if not server.active or server.busy %}disabled{% endif %}>
-                      Выключить
-                  </button>
-                  <span class="busy-indicator" {% if not server.busy %}style="display:none"{% endif %}>⏳</span>
-                  <button class="server-btn log-btn" onclick="showLog('{{ server.name }}')">Лог старта</button>
-                  <button class="server-btn log-btn" onclick="showLogStop('{{ server.name }}')">Лог остановки</button>
-                  <button class="server-btn log-btn" onclick="toggleProperties('{{ server.name }}')">Редактировать server.properties</button>
-                  <button class="server-btn log-btn" onclick="toggleJvmArgs('{{ server.name }}')">Редактировать user_jvm_args.txt</button>
-              </div>
-              <div class="properties-panel" id="properties-{{ server.name }}" style="display:none;">
-                  <form id="prop-form-{{ server.name }}">
-                  </form>
-                  <div style="margin-top:8px;">
-                      <button type="button" onclick="saveProperties('{{ server.name }}')">Сохранить</button>
-                      <button type="button" onclick="toggleProperties('{{ server.name }}')">Отмена</button>
-                      <span id="props-status-{{ server.name }}"></span>
-                  </div>
-              </div>
-              <div class="jvmargs-panel" id="jvmargs-{{ server.name }}" style="display:none;">
-                  <textarea style="width:100%;height:400px;" id="jvmargs-text-{{ server.name }}"></textarea>
-                  <br>
-                  <button type="button" onclick="saveJvmArgs('{{ server.name }}')">Сохранить</button>
-                  <button type="button" onclick="toggleJvmArgs('{{ server.name }}')">Отмена</button>
-                  <span id="jvmargs-status-{{ server.name }}"></span>
-              </div>
-          </li>
-      {% endfor %}
+    <ul class="server-list" id="server-list">
+        <!-- Серверы будут наполняться динамически JS -->
     </ul>
 
     <h2>Системные метрики</h2>
@@ -122,10 +48,10 @@
             <div class="progress-circle" id="cpu-circle">
                 <svg>
                     <circle class="progress-background" cx="60" cy="60" r="54"></circle>
-                    <circle class="progress-bar" cx="60" cy="60" r="54" style="--percent: {{ resources.cpu_usage }}"></circle>
+                    <circle class="progress-bar" cx="60" cy="60" r="54"></circle>
                 </svg>
             </div>
-            <div class="metric-value" id="cpu-percent">{{ resources.cpu_usage }}%</div>
+            <div class="metric-value" id="cpu-percent">--%</div>
             <div class="metric-label">Использование CPU</div>
         </div>
         <!-- Memory -->
@@ -133,13 +59,10 @@
             <div class="progress-circle" id="memory-circle">
                 <svg>
                     <circle class="progress-background" cx="60" cy="60" r="54"></circle>
-                    <circle class="progress-bar" cx="60" cy="60" r="54" style="--percent: {{ (resources.memory.used / resources.memory.total * 100) | round }}"></circle>
+                    <circle class="progress-bar" cx="60" cy="60" r="54"></circle>
                 </svg>
             </div>
-            <div class="metric-value" id="memory-percent">
-                {{ (resources.memory.used / resources.memory.total * 100) | round }}%
-                <span class="metric-small">({{ resources.memory.used }} / {{ resources.memory.total }} ГБ)</span>
-            </div>
+            <div class="metric-value" id="memory-percent">--%</div>
             <div class="metric-label">Использование памяти</div>
         </div>
         <!-- Root Disk -->
@@ -147,13 +70,10 @@
             <div class="progress-circle" id="disk-root-circle">
                 <svg>
                     <circle class="progress-background" cx="60" cy="60" r="54"></circle>
-                    <circle class="progress-bar" cx="60" cy="60" r="54" style="--percent: {{ (resources.disk_root.used / resources.disk_root.total * 100) | round }}"></circle>
+                    <circle class="progress-bar" cx="60" cy="60" r="54"></circle>
                 </svg>
             </div>
-            <div class="metric-value" id="disk-root-percent">
-                {{ (resources.disk_root.used / resources.disk_root.total * 100) | round }}%
-                <span class="metric-small">({{ resources.disk_root.used }} / {{ resources.disk_root.total }} ГБ)</span>
-            </div>
+            <div class="metric-value" id="disk-root-percent">--%</div>
             <div class="metric-label">Диск (root)</div>
         </div>
         <!-- RAID Disk -->
@@ -161,52 +81,105 @@
             <div class="progress-circle" id="disk-raid-circle">
                 <svg>
                     <circle class="progress-background" cx="60" cy="60" r="54"></circle>
-                    <circle class="progress-bar" cx="60" cy="60" r="54" style="--percent: {{ (resources.disk_raid.used / resources.disk_raid.total * 100) | round if resources.disk_raid.total != 'N/A' else 0 }}"></circle>
+                    <circle class="progress-bar" cx="60" cy="60" r="54"></circle>
                 </svg>
             </div>
-            <div class="metric-value" id="disk-raid-percent">
-                {% if resources.disk_raid.total != 'N/A' %}
-                    {{ (resources.disk_raid.used / resources.disk_raid.total * 100) | round }}%
-                    <span class="metric-small">({{ resources.disk_raid.used }} / {{ resources.disk_raid.total }} ГБ)</span>
-                {% else %}
-                    N/A
-                {% endif %}
-            </div>
+            <div class="metric-value" id="disk-raid-percent">--%</div>
             <div class="metric-label">RAID массив</div>
         </div>
     </div>
 
     <script>
-        // Обновление мини-графиков для каждого сервера
-        function showCreateServerModal() {
-            document.getElementById('createServerModal').style.display = '';
-            document.getElementById('new-server-name').value = '';
-            document.getElementById('create-server-status').textContent = '';
+        // ---------- Версия ----------
+        function updateVersion() {
+            fetch('/get_version')
+                .then(r => r.json())
+                .then(d => {
+                    document.getElementById('version-box').textContent = 'Версия: ' + (d.version || '???');
+                })
+                .catch(() => {
+                    document.getElementById('version-box').textContent = 'Версия: ?';
+                });
         }
-        function hideCreateServerModal() {
-            document.getElementById('createServerModal').style.display = 'none';
+        updateVersion();
+        setInterval(updateVersion, 60000);
+
+        // ---------- Серверы ----------
+        function fetchServersAndRender() {
+            fetch('/server_status')
+                .then(r => r.json())
+                .then(data => {
+                    renderServers(data.servers);
+                });
         }
-        function createServer() {
-            const name = document.getElementById('new-server-name').value;
-            fetch('/create_server', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({server_name: name})
-            })
-            .then(r => r.json())
-            .then(d => {
-                const status = document.getElementById('create-server-status');
-                if (d.success) {
-                    status.style.color = "green";
-                    status.textContent = "Сервер создан!";
-                    setTimeout(() => location.reload(), 1000);
-                } else {
-                    status.style.color = "red";
-                    status.textContent = d.error || 'Ошибка!';
-                }
+        function renderServers(servers) {
+            const ul = document.getElementById('server-list');
+            ul.innerHTML = '';
+            servers.forEach(server => {
+                ul.appendChild(renderServerItem(server));
+                fetchMiniServerMetrics(server.name, server.active);
             });
         }
-        function fetchMiniServerMetrics(server) {
+        function renderServerItem(server) {
+            const li = document.createElement('li');
+            li.className = "server-item";
+            li.dataset.server = server.name;
+            li.innerHTML = `
+              <div class="server-main-info">
+                  <span class="server-name">${escapeHtml(server.name)}</span>
+                  <span class="server-toggle ${server.active ? "active" : "inactive"}">
+                      ${server.active ? "Активен" : "Неактивен"}
+                  </span>
+                  <div class="small-metrics">
+                      ${renderMiniMetricBlock("cpu", server.name)}
+                      ${renderMiniMetricBlock("memory", server.name)}
+                      ${renderMiniMetricBlock("rootusage", server.name)}
+                      ${renderMiniMetricBlock("raidusage", server.name)}
+                      ${server.active ? renderMiniMetricBlock("ramdisk", server.name) : ""}
+                  </div>
+              </div>
+              <div class="server-actions">
+                  <button class="server-btn" onclick="serverAction('${server.name}', 'start', this)" ${server.active || server.busy ? "disabled" : ""}>Включить</button>
+                  <button class="server-btn" onclick="serverAction('${server.name}', 'stop', this)" ${!server.active || server.busy ? "disabled" : ""}>Выключить</button>
+                  <span class="busy-indicator" style="${server.busy ? "" : "display:none"}">⏳</span>
+                  <button class="server-btn log-btn" onclick="showLog('${server.name}')">Лог старта</button>
+                  <button class="server-btn log-btn" onclick="showLogStop('${server.name}')">Лог остановки</button>
+                  <button class="server-btn log-btn" onclick="toggleProperties('${server.name}')">Редактировать server.properties</button>
+                  <button class="server-btn log-btn" onclick="toggleJvmArgs('${server.name}')">Редактировать user_jvm_args.txt</button>
+              </div>
+              <div class="properties-panel" id="properties-${server.name}" style="display:none;">
+                  <form id="prop-form-${server.name}"></form>
+                  <div style="margin-top:8px;">
+                      <button type="button" onclick="saveProperties('${server.name}')">Сохранить</button>
+                      <button type="button" onclick="toggleProperties('${server.name}')">Отмена</button>
+                      <span id="props-status-${server.name}"></span>
+                  </div>
+              </div>
+              <div class="jvmargs-panel" id="jvmargs-${server.name}" style="display:none;">
+                  <textarea style="width:100%;height:400px;" id="jvmargs-text-${server.name}"></textarea>
+                  <br>
+                  <button type="button" onclick="saveJvmArgs('${server.name}')">Сохранить</button>
+                  <button type="button" onclick="toggleJvmArgs('${server.name}')">Отмена</button>
+                  <span id="jvmargs-status-${server.name}"></span>
+              </div>
+            `;
+            return li;
+        }
+        function renderMiniMetricBlock(type, server) {
+            return `
+              <div class="mini-metric-item">
+                  <svg class="mini-progress-circle" id="mini-${type}-circle-${server}" width="54" height="54">
+                      <circle class="mini-progress-background" cx="27" cy="27" r="22"></circle>
+                      <circle class="mini-progress-bar" cx="27" cy="27" r="22"></circle>
+                      <text x="27" y="32" text-anchor="middle" font-size="10" class="mini-metric-value" id="mini-${type}-percent-${server}">--%</text>
+                  </svg>
+                  <span class="mini-metric-label">${type.toUpperCase()}</span>
+              </div>
+            `;
+        }
+
+        // ---------- Метрики серверов ----------
+        function fetchMiniServerMetrics(server, isActive) {
             fetch(`/server/${server}/metrics`)
                 .then(response => response.json())
                 .then(data => {
@@ -214,7 +187,7 @@
                     setMiniMetric('memory', server, data.memory.percent);
                     setMiniMetric('rootusage', server, data.root_usage_percent);
                     setMiniMetric('raidusage', server, data.raid_usage_percent);
-                    setMiniMetric('ramdisk', server, data.ramdisk_percent);
+                    if (isActive) setMiniMetric('ramdisk', server, data.ramdisk_percent);
                 });
         }
         function setMiniMetric(type, server, percent) {
@@ -229,29 +202,8 @@
             if (text)
                 text.textContent = (percent !== undefined && percent !== null && percent !== "N/A") ? `${percent}%` : '--%';
         }
-        function updateMiniMetric(type, server, percent) {
-            const id = `mini-${type}-circle-${server}`;
-            const svg = document.getElementById(id);
-            if (!svg) return;
-            const bar = svg.querySelector('.mini-progress-bar');
-            const radius = 16;
-            const circumference = 2 * Math.PI * radius;
-            bar.setAttribute('stroke-dasharray', circumference);
-            if(percent !== undefined && percent !== null && percent !== "N/A") {
-                bar.setAttribute('stroke-dashoffset', circumference - (percent / 100 * circumference));
-                bar.style.stroke = "#44b7fa";
-            } else {
-                bar.setAttribute('stroke-dashoffset', circumference);
-                bar.style.stroke = "#bbb";
-            }
-        }
-        function updateAllMiniMetrics() {
-            {% for server in servers %}
-                fetchMiniServerMetrics("{{ server.name }}");
-            {% endfor %}
-        }
 
-        // Общие метрики
+        // ---------- Общие метрики ----------
         function updateResources() {
             fetch('/resources')
                 .then(response => response.json())
@@ -286,27 +238,40 @@
             }
         }
 
-        // Остальной JS (кнопки, свойства, jvmargs, etc.) тот же самый:
+        // ---------- Остальной JS: создание, действия, свойства, jvmargs ----------
+        function showCreateServerModal() {
+            document.getElementById('createServerModal').style.display = '';
+            document.getElementById('new-server-name').value = '';
+            document.getElementById('create-server-status').textContent = '';
+        }
+        function hideCreateServerModal() {
+            document.getElementById('createServerModal').style.display = 'none';
+        }
+        function createServer() {
+            const name = document.getElementById('new-server-name').value;
+            fetch('/create_server', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({server_name: name})
+            })
+            .then(r => r.json())
+            .then(d => {
+                const status = document.getElementById('create-server-status');
+                if (d.success) {
+                    status.style.color = "green";
+                    status.textContent = "Сервер создан!";
+                    setTimeout(() => location.reload(), 1000);
+                } else {
+                    status.style.color = "red";
+                    status.textContent = d.error || 'Ошибка!';
+                }
+            });
+        }
         function updateServerStatus() {
             fetch('/server_status')
                 .then(resp => resp.json())
                 .then(data => {
-                    data.servers.forEach(server => {
-                        const listItem = document.querySelector(`li.server-item[data-server="${server.name}"]`);
-                        if (listItem) {
-                            const btnStart = listItem.querySelector('button[onclick*="start"]');
-                            const btnStop = listItem.querySelector('button[onclick*="stop"]');
-                            const toggle = listItem.querySelector('.server-toggle');
-                            const busy = listItem.querySelector('.busy-indicator');
-                            if (toggle) {
-                                toggle.className = 'server-toggle ' + (server.active ? 'active' : 'inactive');
-                                toggle.textContent = server.active ? 'Активен' : 'Неактивен';
-                            }
-                            if (btnStart) btnStart.disabled = server.active || server.busy;
-                            if (btnStop) btnStop.disabled = !server.active || server.busy;
-                            if (busy) busy.style.display = server.busy ? '' : 'none';
-                        }
-                    });
+                    renderServers(data.servers);
                 });
         }
         function serverAction(name, action, btn) {
@@ -448,12 +413,14 @@
                 })[c];
             });
         }
-        setInterval(updateAllMiniMetrics, 250);
-        setInterval(updateResources, 250);
-        setInterval(updateServerStatus, 1000);
-        updateAllMiniMetrics();
+
+        // Интервалы обновления
+        setInterval(updateResources, 2500);
+        setInterval(updateServerStatus, 2000);
+
+        // Первый запуск
         updateResources();
-        updateServerStatus();
+        fetchServersAndRender();
     </script>
 </body>
 </html>
