@@ -359,12 +359,14 @@ def create_server():
     if 'logged_in' not in session or not session['logged_in']:
         return jsonify({'success': False, 'error': 'Unauthorized'}), 401
 
-    # Для multipart/form-data поля достаем так:
     server_name = request.form.get('server_name', '').strip()
+    neoforge_version = request.form.get('neoforge_version', '').strip()
     zip_file = request.files.get('zip_file')
 
     if not server_name or not re.match(r'^[A-Za-z0-9_-]+$', server_name):
         return jsonify({'success': False, 'error': 'Некорректное имя сервера'}), 400
+    if not neoforge_version:
+        return jsonify({'success': False, 'error': 'Не указана версия NEOFORGE'}), 400
 
     src = os.path.join(MINECRAFT_SERVERS_DIR, 'precreated_server_prefab')
     dst = os.path.join(MINECRAFT_SERVERS_DIR, server_name)
@@ -378,31 +380,33 @@ def create_server():
 
     try:
         shutil.copytree(src, dst)
-        # --- распаковка zip ---
+        start_sh = os.path.join(dst, "neoforge-server", "startserver.sh")
+        if os.path.isfile(start_sh):
+            with open(start_sh, "r", encoding="utf-8") as f:
+                lines = f.readlines()
+            with open(start_sh, "w", encoding="utf-8") as f:
+                for line in lines:
+                    if line.strip().startswith("NEOFORGE_VERSION="):
+                        f.write(f'NEOFORGE_VERSION={neoforge_version}\n')
+                    else:
+                        f.write(line)
         extract_to = os.path.join(dst, 'neoforge-server')
         os.makedirs(extract_to, exist_ok=True)
         with zipfile.ZipFile(zip_file.stream) as zf:
             for member in zf.infolist():
-                # Пропускаем папки
                 if member.is_dir():
                     continue
-                # Формируем путь назначения
                 relpath = os.path.normpath(member.filename)
-                # Безопасность: не позволять выходить за пределы extract_to
                 if '..' in relpath.split(os.sep):
                     continue
                 target_path = os.path.join(extract_to, relpath)
-                # Если файл уже существует — пропустить
                 if os.path.exists(target_path):
                     continue
-                # Создать папки, если их нет
                 os.makedirs(os.path.dirname(target_path), exist_ok=True)
                 with zf.open(member) as source, open(target_path, 'wb') as target:
                     shutil.copyfileobj(source, target)
-        # ---
         return jsonify({'success': True, 'message': f'Сервер {server_name} создан!'})
     except Exception as e:
-        # Логируем ошибку для отладки больших архивов
         import traceback
         traceback.print_exc()
         return jsonify({'success': False, 'error': str(e)}), 500

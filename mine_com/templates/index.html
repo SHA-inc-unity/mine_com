@@ -37,6 +37,7 @@
     <button onclick="showCreateServerModal()">Создать новый сервер</button>
     <div id="createServerModal" style="display:none;">
         <input id="new-server-name" type="text" placeholder="Имя нового сервера">
+        <input id="neoforge-version" type="text" placeholder="Версия NEOFORGE (например, 21.1.164)">
         <input id="server-zip" type="file" accept=".zip">
         <button onclick="createServer()">Создать</button>
         <button onclick="hideCreateServerModal()">Отмена</button>
@@ -404,6 +405,7 @@
         }
         function createServer() {
             const name = document.getElementById('new-server-name').value;
+            const version = document.getElementById('neoforge-version').value;
             const zipFile = document.getElementById('server-zip').files[0];
             const status = document.getElementById('create-server-status');
             const progress = document.getElementById('upload-progress');
@@ -414,6 +416,11 @@
                 status.textContent = "Введите имя сервера";
                 return;
             }
+            if (!version) {
+                status.style.color = "red";
+                status.textContent = "Введите версию NEOFORGE";
+                return;
+            }
             if (!zipFile) {
                 status.style.color = "red";
                 status.textContent = "Выберите ZIP-файл";
@@ -421,6 +428,7 @@
             }
             let formData = new FormData();
             formData.append('server_name', name);
+            formData.append('neoforge_version', version);
             formData.append('zip_file', zipFile);
 
             // Показываем прогресс-бар
