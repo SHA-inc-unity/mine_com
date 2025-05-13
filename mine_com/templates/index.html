@@ -110,7 +110,8 @@
     </div>
 
     <script>
-        // Для отслеживания открытых редакторов:
+        // Управление автообновлением серверов
+        let autoRefreshEnabled = true;
         let openedPropertiesPanel = null;
         let openedJvmArgsPanel = null;
 
@@ -124,12 +125,14 @@
             selectedConfigFile = '';
             document.getElementById('configManagerModal').style.display = '';
             loadConfigTree();
+            autoRefreshEnabled = false;
         }
         function closeConfigManager() {
             document.getElementById('configManagerModal').style.display = 'none';
             document.getElementById('config-tree').innerHTML = '';
             document.getElementById('config-file-edit').style.display = 'none';
             document.getElementById('config-file-empty').style.display = '';
+            autoRefreshEnabled = true;
         }
         function loadConfigTree(path = '') {
             fetch(`/server/${currentConfigServer}/config/list?path=${encodeURIComponent(path)}`)
@@ -231,7 +234,7 @@
                 ul.appendChild(renderServerItem(server));
                 fetchMiniServerMetrics(server.name, server.active);
             });
-            // Восстанавливаем открытые редакторы после перерисовки
+            // Если нужно восстанавливать открытые редакторы (оставим на всякий случай)
             if (openedPropertiesPanel) {
                 setTimeout(() => toggleProperties(openedPropertiesPanel, true), 100);
             }
@@ -427,6 +430,7 @@
                             renderPropertiesForm(server, d.text);
                             document.getElementById(`props-status-${server}`).textContent = "";
                             openedPropertiesPanel = server;
+                            autoRefreshEnabled = false;
                         } else {
                             alert(d.error || "Ошибка загрузки");
                         }
@@ -434,6 +438,7 @@
             } else if (!restoring) {
                 panel.style.display = "none";
                 openedPropertiesPanel = null;
+                autoRefreshEnabled = true;
             }
         }
         function renderPropertiesForm(server, text) {
@@ -494,6 +499,7 @@
                             document.getElementById(`jvmargs-text-${server}`).value = d.text;
                             document.getElementById(`jvmargs-status-${server}`).textContent = "";
                             openedJvmArgsPanel = server;
+                            autoRefreshEnabled = false;
                         } else {
                             alert(d.error || "Ошибка загрузки");
                         }
@@ -501,6 +507,7 @@
             } else if (!restoring) {
                 panel.style.display = "none";
                 openedJvmArgsPanel = null;
+                autoRefreshEnabled = true;
             }
         }
         function saveJvmArgs(server) {
@@ -536,7 +543,10 @@
         }
 
         setInterval(updateResources, 2500);
-        setInterval(updateServerStatus, 2000);
+
+        setInterval(() => {
+            if (autoRefreshEnabled) updateServerStatus();
+        }, 2000);
 
         updateResources();
         fetchServersAndRender();
