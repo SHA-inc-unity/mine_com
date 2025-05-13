@@ -183,14 +183,12 @@ def save_jvmargs(server_name):
 
 @app.route('/server/<server_name>/metrics')
 def server_metrics(server_name):
-    ramdisk_path = os.path.join(RAMDISK_PATH, f"{server_name}_world")
-    raid_world_path = os.path.join('/mnt/raid/minecraft', server_name, 'world')
-
+    ...
     # CPU/RAM через docker stats
-    cpu_percent = 0
-    mem_percent = 0
-    mem_used = 0
-    mem_total = 0
+    cpu_percent = None
+    mem_percent = None
+    mem_used = None
+    mem_total = None
     try:
         cname = f"{server_name}-server"
         output = subprocess.check_output([
@@ -215,78 +213,42 @@ def server_metrics(server_name):
                         return float(m)
                 mem_used_val = parse_mem(mem_used)
                 mem_total_val = parse_mem(mem_total)
-                mem_percent = int(round((mem_used_val / mem_total_val)*100)) if mem_total_val else 0
+                mem_percent = int(round((mem_used_val / mem_total_val)*100)) if mem_total_val else None
                 mem_used = round(mem_used_val, 2)
                 mem_total = round(mem_total_val, 2)
                 break
     except Exception as ex:
-        cpu_percent = 0
-        mem_percent = 0
-        mem_used = 0
-        mem_total = 0
+        cpu_percent = None
+        mem_percent = None
+        mem_used = None
+        mem_total = None
 
-    # Размер папки мира на RAMDISK (в байтах)
-    ramdisk_size_bytes = 0
+    # ... Аналогично для остальных метрик:
     if os.path.isdir(ramdisk_path):
-        try:
-            du_out = subprocess.check_output(['du', '-sb', ramdisk_path]).decode().split()[0]
-            ramdisk_size_bytes = int(du_out)
-        except Exception as ex:
-            ramdisk_size_bytes = 0
-
-    # Размер папки мира на RAID (в байтах)
-    raid_size_bytes = 0
-    if os.path.isdir(raid_world_path):
-        try:
-            du_out = subprocess.check_output(['du', '-sb', raid_world_path]).decode().split()[0]
-            raid_size_bytes = int(du_out)
-        except Exception as ex:
-            raid_size_bytes = 0
-
-    # RAMDISK: процент использования относительно размера ТОМа RAMDISK для этого mountpoint
-    ramdisk_percent = None
-    try:
-        if os.path.isdir(ramdisk_path):
-            ramdisk_total = shutil.disk_usage(ramdisk_path).total
-            if ramdisk_total > 0:
-                ramdisk_percent = round(ramdisk_size_bytes / ramdisk_total * 100, 2)
-            else:
-                ramdisk_percent = 0
-        else:
-            ramdisk_percent = None
-    except Exception:
+        ...
+        ramdisk_percent = int(round(ramdisk_size_bytes / ramdisk_total * 100)) if ramdisk_total > 0 else None
+    else:
         ramdisk_percent = None
 
-    # Root: процент относительно занятого места на /
     try:
         disk_root = shutil.disk_usage('/')
         root_used = disk_root.used
-        if root_used > 0:
-            root_usage_percent = round(ramdisk_size_bytes / root_used * 100, 2)
-        else:
-            root_usage_percent = 0
+        root_usage_percent = int(round(ramdisk_size_bytes / root_used * 100)) if root_used > 0 else None
     except Exception:
-        root_usage_percent = 0
+        root_usage_percent = None
 
-    # RAID: процент относительно занятого места на RAID
     try:
         disk_raid = shutil.disk_usage('/mnt/raid')
         raid_used = disk_raid.used
-        if raid_used > 0:
-            raid_usage_percent = round(raid_size_bytes / raid_used * 100, 2)
-        else:
-            raid_usage_percent = 0
+        raid_usage_percent = int(round(raid_size_bytes / raid_used * 100)) if raid_used > 0 else None
     except Exception:
-        raid_usage_percent = 0
+        raid_usage_percent = None
 
-    print(f"[{server_name}] ramdisk_path={ramdisk_path} exists={os.path.isdir(ramdisk_path)} size={ramdisk_size_bytes}")
-    print(f"[{server_name}] raid_world_path={raid_world_path} exists={os.path.isdir(raid_world_path)} size={raid_size_bytes}")
-    print(f"[{server_name}] ramdisk_percent={ramdisk_percent} root_usage_percent={root_usage_percent} raid_usage_percent={raid_usage_percent}")
-
+    # Возвращаем null где данных нет
     return jsonify({
-        "cpu": int(round(cpu_percent)),
+        "cpu": cpu_percent,
         "memory": {
-            "percent": int(round(mem_percent)),
+            "percent": mem_percent,
             "used": mem_used,
             "total": mem_total
         },

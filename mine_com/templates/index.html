@@ -345,7 +345,7 @@
             const svg = document.getElementById(`mini-${type}-circle-${server}`);
             if (!svg) return;
             const bar = svg.querySelector('.mini-progress-bar');
-            const text = document.getElementById(`mini-${type}-percent-${server}`);
+            const text = svg.querySelector(`#mini-${type}-percent-${server}`);
             const radius = 22;
             const circumference = 2 * Math.PI * radius;
             bar.setAttribute('stroke-dasharray', circumference);
