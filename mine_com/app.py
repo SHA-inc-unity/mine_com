@@ -301,29 +301,30 @@ def server_metrics(server_name):
 def get_version():
     try:
         log = subprocess.check_output(
-            ["git", "log", "--pretty=format:%H|%s"],
+            ["git", "log", "--pretty=format:%s"],
             encoding="utf-8"
         ).splitlines()
 
-        # Поиск индекса последнего global-коммита
+        # Поиск индекса последнего коммита с 'global'
         last_global_index = None
-        for i, line in enumerate(log):
-            _, msg = line.split("|", 1)
+        for i, msg in enumerate(log):
             if "global" in msg.lower():
                 last_global_index = i
                 break
 
         if last_global_index is not None:
-            # major — сколько global до этого места (включая его)
-            major = sum(1 for _, msg in (l.split("|", 1) for l in log) if "global" in msg.lower() and log.index(f"{_}|{msg}") <= last_global_index)
-            # Получаем все коммиты после последнего global (от новых к старым)
+            # major — номер последнего global (считаем global до и включая найденный)
+            major = sum(1 for m in log if "global" in m.lower() and log.index(m) <= last_global_index)
+
+            # after_global — список коммитов после последнего global (от новых к старым)
             after_global = log[:last_global_index]
-            # minor — сколько big среди них
-            minor = sum(1 for _, msg in (l.split("|", 1) for l in after_global) if "big" in msg.lower())
-            # patch — от последнего big до global (или от global если big нет)
+
+            # minor — сколько big среди них (ищется в любом месте строки)
+            minor = sum(1 for m in after_global if "big" in m.lower())
+
+            # patch — сколько коммитов после последнего big (или после global, если big нет)
             last_big_index = None
-            for i, line in enumerate(after_global):
-                _, msg = line.split("|", 1)
+            for i, msg in enumerate(after_global):
                 if "big" in msg.lower():
                     last_big_index = i
                     break
@@ -332,7 +333,7 @@ def get_version():
             else:
                 patch = len(after_global)
         else:
-            # Нет global — всё считается как patch
+            # Если нет global-коммита, всё — patch
             major = 0
             minor = 0
             patch = len(log)
