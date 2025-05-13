@@ -15,9 +15,20 @@ LOGS_DIR = os.path.join(MINECRAFT_SERVERS_DIR, "logs")
 os.makedirs(LOGS_DIR, exist_ok=True)
 
 server_processes = {}
+busy_pids = {}  # <--- здесь храним pid активных start/stop процессов
 
 USERNAME = 'admin'
 PASSWORD = 'password123'
+
+def is_pid_running(pid):
+    """Проверяет, существует ли процесс с таким pid."""
+    if not pid:
+        return False
+    try:
+        proc = psutil.Process(pid)
+        return proc.is_running() and proc.status() != psutil.STATUS_ZOMBIE
+    except Exception:
+        return False
 
 def get_system_resources():
     disk_root = shutil.disk_usage('/')
@@ -52,8 +63,9 @@ def get_servers_with_status():
                   if os.path.isdir(os.path.join(MINECRAFT_SERVERS_DIR, d))
                   and d not in ("mine_com", "logs", ".git", "precreated_server_prefab")]
     for server in all_servers:
-        busy = is_server_busy(server)
-        active = busy # теперь активность = контейнер запущен
+        active = is_server_busy(server)
+        pid = busy_pids.get(server)
+        busy = is_pid_running(pid)
         servers.append({'name': server, 'active': active, 'busy': busy})
     return servers
 
@@ -63,7 +75,6 @@ def is_server_busy(server_name):
     Возвращает True если контейнер работает, иначе False.
     """
     try:
-        # Смотрим только активные контейнеры (-q чтобы получить только id)
         output = subprocess.check_output(
             ["docker", "ps", "--filter", f"name=^{server_name}-server$", "--format", "{{.ID}}"],
             stderr=subprocess.DEVNULL
@@ -119,11 +130,11 @@ def server_action(server_name, action):
     if action not in ['start', 'stop']:
         return jsonify({'success': False, 'error': 'Unknown action'}), 400
     script_file = 'start.sh' if action == 'start' else 'stop.sh'
-    # --- вот здесь вызываем замену ---
     if action == 'start':
         patch_bluemap_configs(server_name)
-    # --- конец вставки ---
-    ok, msg = run_server_script(server_name, script_file)
+    ok, msg, pid = run_server_script(server_name, script_file)
+    if ok and pid:
+        busy_pids[server_name] = pid
     return jsonify({'success': ok, 'message': msg})
 
 @app.route('/server/<server_name>/<action>/log')
@@ -304,7 +315,6 @@ def get_version():
             encoding="utf-8"
         ).splitlines()
 
-        # Поиск индекса последнего коммита с 'global'
         last_global_index = None
         for i, msg in enumerate(log):
             if "global" in msg.lower():
@@ -312,12 +322,9 @@ def get_version():
                 break
 
         if last_global_index is not None:
-            # major — количество global до и включая найденный
             major = sum(1 for m in log if "global" in m.lower() and log.index(m) <= last_global_index)
             after_global = log[:last_global_index]
-            # minor — сколько big среди них
             minor = sum(1 for m in after_global if "big" in m.lower())
-            # patch — сколько коммитов после последнего big (или после global, если big нет)
             last_big_index = None
             for i, msg in enumerate(after_global):
                 if "big" in msg.lower():
@@ -328,7 +335,6 @@ def get_version():
             else:
                 patch = len(after_global)
         else:
-            # Нет global — ищем последний big
             last_big_index = None
             for i, msg in enumerate(log):
                 if "big" in msg.lower():
@@ -336,11 +342,9 @@ def get_version():
                     break
             if last_big_index is not None:
                 major = 0
-                # minor — номер последнего big (от новых к старым, начиная с 1)
                 minor = sum(1 for m in log if "big" in m.lower() and log.index(m) <= last_big_index)
                 patch = last_big_index
             else:
-                # Нет ни global, ни big
                 major = 0
                 minor = 0
                 patch = len(log)
@@ -359,7 +363,6 @@ def create_server():
     data = request.get_json()
     server_name = data.get('server_name', '').strip()
 
-    # Проверка валидности имени (буквы, цифры, дефис, нижнее подчёркивание)
     if not server_name or not server_name.isidentifier():
         return jsonify({'success': False, 'error': 'Некорректное имя сервера'}), 400
 
@@ -376,14 +379,13 @@ def create_server():
         return jsonify({'success': True, 'message': f'Сервер {server_name} создан!'})
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
-    
+
 @app.route('/server/<server_name>/config/list', methods=['GET'])
 def list_config_files(server_name):
     import os
-    rel_path = request.args.get('path', '')  # относительный путь внутри config
+    rel_path = request.args.get('path', '')
     config_root = os.path.join(MINECRAFT_SERVERS_DIR, server_name, 'neoforge-server', 'config')
     abs_path = os.path.normpath(os.path.join(config_root, rel_path))
-    # Защищаемся от выхода выше config
     if not abs_path.startswith(config_root):
         return jsonify({'error': 'Недопустимый путь'}), 400
     if not os.path.isdir(abs_path):
@@ -397,7 +399,6 @@ def list_config_files(server_name):
             items.append({'name': name, 'type': 'file'})
     parent = None
     if abs_path != config_root:
-        # Определяем относительный путь к родителю
         parent = os.path.relpath(os.path.dirname(abs_path), config_root)
         if parent == '.':
             parent = ''
@@ -417,7 +418,7 @@ def config_file(server_name):
         with open(abs_path, 'r', encoding='utf-8', errors='replace') as f:
             text = f.read()
         return jsonify({'text': text, 'filename': os.path.basename(abs_path)})
-    else:  # POST (сохранение)
+    else:
         data = request.get_json()
         text = data.get('text', '')
         try:
@@ -428,9 +429,6 @@ def config_file(server_name):
             return jsonify({'success': False, 'error': str(e)}), 500
 
 def update_bluemap_config(server_name):
-    """
-    Заменяет в core.conf, webapp.conf и webserver.conf путь /server/{server_name}/bluemap/ и web в bluemap config на актуальный server_name
-    """
     config_dir = os.path.join(MINECRAFT_SERVERS_DIR, server_name, "neoforge-server", "config", "bluemap")
     replacements = {
         "core.conf": [
@@ -452,9 +450,7 @@ def update_bluemap_config(server_name):
             with open(filepath, "r", encoding="utf-8") as f:
                 content = f.read()
             for oldpat, fullpat in patterns:
-                # Универсальная замена любого server_name на актуальный
                 import re
-                # Соответствует data: "/server/что-угодно/bluemap/ или webroot: "/server/что-угодно/bluemap/web
                 content = re.sub(
                     rf'{oldpat}[^/]+/bluemap(/web)?',
                     f'{oldpat}{server_name}/bluemap\\1',
@@ -468,24 +464,18 @@ def update_bluemap_config(server_name):
 def run_server_script(server_name, script_name):
     script_path = os.path.join(MINECRAFT_SERVERS_DIR, server_name, "ramdisk-minecraft", script_name)
     if not os.path.isfile(script_path) or not os.access(script_path, os.X_OK):
-        return False, "Файл не найден или не исполняемый."
+        return False, "Файл не найден или не исполняемый.", None
     ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     action = script_name.replace('.sh', '')
     log_file = os.path.join(LOGS_DIR, f"{server_name}_{action}_{ts}.log")
     try:
         with open(log_file, "w") as f:
-            result = subprocess.run([script_path], stdout=f, stderr=subprocess.STDOUT, check=False)
-        # если это stop — сбросить busy-флаг
-        if action == "stop":
-            server_processes.pop(server_name, None)
-        return True, f"Скрипт выполнен (код {result.returncode}). Лог сохранён."
+            proc = subprocess.Popen([script_path], stdout=f, stderr=subprocess.STDOUT)
+        return True, f"Скрипт запущен (pid {proc.pid}). Лог пишется.", proc.pid
     except Exception as e:
-        return False, f"Ошибка запуска: {e}"
-        
+        return False, f"Ошибка запуска: {e}", None
+
 def patch_bluemap_configs(server_name):
-    """
-    Меняет одну строку в каждом bluemap-конфиге, подставляя актуальное имя сервера.
-    """
     import os
 
     config_dir = os.path.join(
@@ -531,4 +521,4 @@ def patch_bluemap_configs(server_name):
             print(f"Ошибка обновления {path}: {ex}")
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8390, debug=True) 
+    app.run(host='0.0.0.0', port=8390, debug=True)
