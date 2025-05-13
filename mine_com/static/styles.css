@@ -258,7 +258,19 @@ h1, h2 {
     height: 400px;
 }
 
+#configManagerModal .config-sidebar {
+    display: flex;
+    flex-direction: column;
+    min-width: 220px;
+    border-right: 1px solid #eee;
+    padding-right: 14px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
 #config-tree {
-    max-height: 80vh;
+    flex: 1 1 0;
     overflow-y: auto;
+    min-height: 0;
+    max-height: none;
 }
