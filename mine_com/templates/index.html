@@ -578,7 +578,10 @@
                 prev += `> ${cmd}`;
                 // 2. Показываем ответ (или ошибку)
                 if (d.success) {
-                    prev += "\n" + (d.response || "(нет ответа)");
+                    let answer = (d.response === undefined || d.response === null || d.response.trim() === "")
+                        ? "(нет ответа — команда выполнена)"
+                        : d.response;
+                    prev += "\n" + answer;
                 } else {
                     prev += "\nОшибка: " + (d.error || 'нет ответа');
                 }
