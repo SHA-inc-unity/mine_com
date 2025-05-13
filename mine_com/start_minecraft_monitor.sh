@@ -3,6 +3,10 @@
 SCRIPT_PATH="$(realpath "$0")"
 SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
 
+# Автоматическое добавление репозитория в safe.directory для всех пользователей
+REPO_DIR="$SCRIPT_DIR"
+git config --global --add safe.directory "$REPO_DIR"
+
 if [[ "$1" != "--child" ]]; then
   cd "$SCRIPT_DIR"
   sudo nohup "$SCRIPT_PATH" --child > auto_update.log 2>&1 &
@@ -32,6 +36,8 @@ start_app
 
 while true
 do
+  # Автоматически (и повторно, на всякий случай) добавляем safe.directory перед git-операциями
+  git config --global --add safe.directory "$REPO_DIR"
   git fetch origin "$GIT_BRANCH"
   LOCAL=$(git rev-parse "$GIT_BRANCH")
   REMOTE=$(git rev-parse "origin/$GIT_BRANCH")
