@@ -1,12 +1,16 @@
 #!/bin/bash
 
+SCRIPT_PATH="$(realpath "$0")"
+SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
+
 if [[ "$1" != "--child" ]]; then
-  nohup "$0" --child > auto_update.log 2>&1 &
+  cd "$SCRIPT_DIR"
+  sudo nohup "$SCRIPT_PATH" --child > auto_update.log 2>&1 &
   exit 0
 fi
 
-cd "$(dirname "$0")"
-GIT_BRANCH="main"   # или ваша ветка
+cd "$SCRIPT_DIR"
+GIT_BRANCH="main"   # или твоя ветка
 APP_PID_FILE="flask.pid"
 LOG_FILE="server.log"
 
