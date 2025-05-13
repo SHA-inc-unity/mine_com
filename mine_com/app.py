@@ -364,7 +364,7 @@ def create_server():
     server_name = request.form.get('server_name', '').strip()
     zip_file = request.files.get('zip_file')
 
-    if not server_name or not server_name.isidentifier():
+    if not server_name or not re.match(r'^[A-Za-z0-9_-]+$', server_name):
         return jsonify({'success': False, 'error': 'Некорректное имя сервера'}), 400
 
     src = os.path.join(MINECRAFT_SERVERS_DIR, 'precreated_server_prefab')
