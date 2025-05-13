@@ -4,10 +4,15 @@ import psutil
 import subprocess
 import datetime
 import glob
+import re
+import zipfile
 from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey123'
+
+# Увеличить максимально допустимый размер загружаемого файла (например, до 4 ГБ)
+app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024 * 1024
 
 MINECRAFT_SERVERS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 RAMDISK_PATH = '/mnt/ramdisk'
@@ -397,11 +402,13 @@ def create_server():
         # ---
         return jsonify({'success': True, 'message': f'Сервер {server_name} создан!'})
     except Exception as e:
+        # Логируем ошибку для отладки больших архивов
+        import traceback
+        traceback.print_exc()
         return jsonify({'success': False, 'error': str(e)}), 500
 
 @app.route('/server/<server_name>/config/list', methods=['GET'])
 def list_config_files(server_name):
-    import os
     rel_path = request.args.get('path', '')
     config_root = os.path.join(MINECRAFT_SERVERS_DIR, server_name, 'neoforge-server', 'config')
     abs_path = os.path.normpath(os.path.join(config_root, rel_path))
@@ -425,7 +432,6 @@ def list_config_files(server_name):
 
 @app.route('/server/<server_name>/config/file', methods=['GET', 'POST'])
 def config_file(server_name):
-    import os
     rel_path = request.args.get('path', '')
     config_root = os.path.join(MINECRAFT_SERVERS_DIR, server_name, 'neoforge-server', 'config')
     abs_path = os.path.normpath(os.path.join(config_root, rel_path))
@@ -495,8 +501,6 @@ def run_server_script(server_name, script_name):
         return False, f"Ошибка запуска: {e}", None
 
 def patch_bluemap_configs(server_name):
-    import os
-
     config_dir = os.path.join(
         MINECRAFT_SERVERS_DIR, server_name, "neoforge-server", "config", "bluemap"
     )
