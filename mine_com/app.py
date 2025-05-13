@@ -10,9 +10,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey123'
-
-# Увеличить максимально допустимый размер загружаемого файла (например, до 4 ГБ)
-app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024 * 1024
+app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024 * 1024  # 4 GB
 
 MINECRAFT_SERVERS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 RAMDISK_PATH = '/mnt/ramdisk'
@@ -20,13 +18,12 @@ LOGS_DIR = os.path.join(MINECRAFT_SERVERS_DIR, "logs")
 os.makedirs(LOGS_DIR, exist_ok=True)
 
 server_processes = {}
-busy_pids = {}  # <--- здесь храним pid активных start/stop процессов
+busy_pids = {}
 
 USERNAME = 'admin'
 PASSWORD = 'password123'
 
 def is_pid_running(pid):
-    """Проверяет, существует ли процесс с таким pid."""
     if not pid:
         return False
     try:
@@ -40,7 +37,6 @@ def get_system_resources():
     disk_root_total = disk_root.total // (1024 ** 3)
     disk_root_used = disk_root.used // (1024 ** 3)
     disk_root_free = disk_root.free // (1024 ** 3)
-
     try:
         disk_raid = shutil.disk_usage('/mnt/raid')
         disk_raid_total = disk_raid.total // (1024 ** 3)
@@ -48,13 +44,11 @@ def get_system_resources():
         disk_raid_free = disk_raid.free // (1024 ** 3)
     except FileNotFoundError:
         disk_raid_total = disk_raid_used = disk_raid_free = "N/A"
-
     cpu_usage = psutil.cpu_percent(interval=1)
     memory = psutil.virtual_memory()
     memory_total = memory.total // (1024 ** 3)
     memory_used = memory.used // (1024 ** 3)
     memory_free = memory.free // (1024 ** 3)
-
     return {
         'disk_root': {'total': disk_root_total, 'used': disk_root_used, 'free': disk_root_free},
         'disk_raid': {'total': disk_raid_total, 'used': disk_raid_used, 'free': disk_raid_free},
@@ -75,10 +69,6 @@ def get_servers_with_status():
     return servers
 
 def is_server_busy(server_name):
-    """
-    Проверяет, запущен ли контейнер сервера с именем {server_name}-server.
-    Возвращает True если контейнер работает, иначе False.
-    """
     try:
         output = subprocess.check_output(
             ["docker", "ps", "--filter", f"name=^{server_name}-server$", "--format", "{{.ID}}"],
@@ -155,6 +145,24 @@ def server_action_log(server_name, action):
         log_content = f.read().decode("utf-8", errors="replace")
     return jsonify({"log": log_content})
 
+@app.route('/server/<server_name>/docker_log')
+def server_docker_log(server_name):
+    if 'logged_in' not in session or not session['logged_in']:
+        return jsonify({'error': 'Unauthorized'}), 401
+    if not is_server_busy(server_name):
+        return jsonify({'error': 'Контейнер не запущен'}), 400
+    container_name = f"{server_name}-server"
+    try:
+        log = subprocess.check_output(
+            ["docker", "logs", container_name, "--tail", "100"],
+            stderr=subprocess.STDOUT,
+            encoding="utf-8",
+            errors="replace"
+        )
+        return jsonify({'log': log})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 @app.route('/server/<server_name>/properties', methods=['GET'])
 def get_properties(server_name):
     prop_path = os.path.join(MINECRAFT_SERVERS_DIR, server_name, "ramdisk-minecraft", "server.properties")
@@ -201,8 +209,6 @@ def save_jvmargs(server_name):
 def server_metrics(server_name):
     ramdisk_path = os.path.join(RAMDISK_PATH, f"{server_name}_world")
     raid_world_path = os.path.join('/mnt/raid/minecraft', server_name, 'world')
-
-    # CPU/RAM через docker stats
     cpu_percent = 0
     mem_percent = 0
     mem_used = 0
@@ -240,8 +246,6 @@ def server_metrics(server_name):
         mem_percent = 0
         mem_used = 0
         mem_total = 0
-
-    # Размер папки мира на RAMDISK (в байтах)
     ramdisk_size_bytes = 0
     if os.path.isdir(ramdisk_path):
         try:
@@ -249,8 +253,6 @@ def server_metrics(server_name):
             ramdisk_size_bytes = int(du_out)
         except Exception as ex:
             ramdisk_size_bytes = 0
-
-    # Размер папки мира на RAID (в байтах)
     raid_size_bytes = 0
     if os.path.isdir(raid_world_path):
         try:
@@ -258,8 +260,6 @@ def server_metrics(server_name):
             raid_size_bytes = int(du_out)
         except Exception as ex:
             raid_size_bytes = 0
-
-    # RAMDISK: процент использования относительно размера ТОМа RAMDISK для этого mountpoint
     ramdisk_percent = None
     try:
         if os.path.isdir(ramdisk_path):
@@ -272,8 +272,6 @@ def server_metrics(server_name):
             ramdisk_percent = None
     except Exception:
         ramdisk_percent = None
-
-    # Root: процент относительно занятого места на /
     try:
         disk_root = shutil.disk_usage('/')
         root_used = disk_root.used
@@ -283,8 +281,6 @@ def server_metrics(server_name):
             root_usage_percent = 0
     except Exception:
         root_usage_percent = 0
-
-    # RAID: процент относительно занятого места на RAID
     try:
         disk_raid = shutil.disk_usage('/mnt/raid')
         raid_used = disk_raid.used
@@ -294,11 +290,9 @@ def server_metrics(server_name):
             raid_usage_percent = 0
     except Exception:
         raid_usage_percent = 0
-
     print(f"[{server_name}] ramdisk_path={ramdisk_path} exists={os.path.isdir(ramdisk_path)} size={ramdisk_size_bytes}")
     print(f"[{server_name}] raid_world_path={raid_world_path} exists={os.path.isdir(raid_world_path)} size={raid_size_bytes}")
     print(f"[{server_name}] ramdisk_percent={ramdisk_percent} root_usage_percent={root_usage_percent} raid_usage_percent={raid_usage_percent}")
-
     return jsonify({
         "cpu": int(round(cpu_percent)),
         "memory": {
@@ -311,7 +305,6 @@ def server_metrics(server_name):
         "ramdisk_percent": ramdisk_percent
     })
 
-
 @app.route('/get_version')
 def get_version():
     try:
@@ -319,13 +312,10 @@ def get_version():
             ["git", "log", "--pretty=format:%s"],
             encoding="utf-8"
         ).splitlines()
-
-        # Найти все индексы global
         global_indices = [i for i, msg in enumerate(log) if "global" in msg.lower()]
         if global_indices:
             last_global_index = global_indices[0]
             major = len(global_indices)
-            # minor = count of "big" after last "global"
             after_global = log[:last_global_index]
             big_indices = [i for i, msg in enumerate(after_global) if "big" in msg.lower()]
             if big_indices:
@@ -336,7 +326,6 @@ def get_version():
                 minor = 0
                 patch = len(after_global)
         else:
-            # Нет global, ищем big
             big_indices = [i for i, msg in enumerate(log) if "big" in msg.lower()]
             if big_indices:
                 last_big_index = big_indices[0]
@@ -347,10 +336,8 @@ def get_version():
                 major = 0
                 minor = 0
                 patch = len(log)
-
         version = f"{major}.{minor}.{patch}"
         return jsonify({"version": version})
-
     except Exception as ex:
         return jsonify({"error": str(ex)}), 500
 
@@ -358,26 +345,21 @@ def get_version():
 def create_server():
     if 'logged_in' not in session or not session['logged_in']:
         return jsonify({'success': False, 'error': 'Unauthorized'}), 401
-
     server_name = request.form.get('server_name', '').strip()
     neoforge_version = request.form.get('neoforge_version', '').strip()
     zip_file = request.files.get('zip_file')
-
     if not server_name or not re.match(r'^[A-Za-z0-9_-]+$', server_name):
         return jsonify({'success': False, 'error': 'Некорректное имя сервера'}), 400
     if not neoforge_version:
         return jsonify({'success': False, 'error': 'Не указана версия NEOFORGE'}), 400
-
     src = os.path.join(MINECRAFT_SERVERS_DIR, 'precreated_server_prefab')
     dst = os.path.join(MINECRAFT_SERVERS_DIR, server_name)
-
     if not os.path.isdir(src):
         return jsonify({'success': False, 'error': 'Шаблон не найден'}), 500
     if os.path.exists(dst):
         return jsonify({'success': False, 'error': 'Сервер с таким именем уже существует'}), 400
     if not zip_file or not zip_file.filename.endswith('.zip'):
         return jsonify({'success': False, 'error': 'Не выбран zip-файл'}), 400
-
     try:
         shutil.copytree(src, dst)
         start_sh = os.path.join(dst, "neoforge-server", "startserver.sh")
@@ -470,7 +452,6 @@ def update_bluemap_config(server_name):
             ('webroot: "/server/', 'webroot: "/server/{server_name}/bluemap/web')
         ]
     }
-
     for filename, patterns in replacements.items():
         filepath = os.path.join(config_dir, filename)
         if not os.path.isfile(filepath):
@@ -530,7 +511,6 @@ def patch_bluemap_configs(server_name):
             "value": f'root: "/server/{server_name}/bluemap/web/maps"'
         },
     ]
-
     for patch in patch_list:
         path = os.path.join(config_dir, patch["filename"])
         if not os.path.isfile(path):

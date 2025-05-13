@@ -431,7 +431,6 @@
             formData.append('neoforge_version', version);
             formData.append('zip_file', zipFile);
 
-            // Показываем прогресс-бар
             progress.value = 0;
             progress.max = 100;
             progress.style.display = '';
@@ -478,6 +477,17 @@
             };
 
             xhr.send(formData);
+        }
+        function showDockerLog(server) {
+            fetch(`/server/${server}/docker_log`)
+                .then(r => r.json())
+                .then(d => {
+                    if (d.log !== undefined) {
+                        alert(d.log);
+                    } else {
+                        alert(d.error || "Ошибка получения логов docker");
+                    }
+                });
         }
         function updateServerStatus() {
             fetch('/server_status')
