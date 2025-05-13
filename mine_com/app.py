@@ -52,9 +52,8 @@ def get_servers_with_status():
                   if os.path.isdir(os.path.join(MINECRAFT_SERVERS_DIR, d))
                   and d not in ("mine_com", "logs", ".git", "precreated_server_prefab")]
     for server in all_servers:
-        ramdisk_path = os.path.join(RAMDISK_PATH, f"{server}_world")
-        active = os.path.isdir(ramdisk_path) and bool(os.listdir(ramdisk_path))
         busy = is_server_busy(server)
+        active = busy # теперь активность = контейнер запущен
         servers.append({'name': server, 'active': active, 'busy': busy})
     return servers
 
