@@ -297,47 +297,55 @@
             li.className = "server-item";
             li.dataset.server = server.name;
             li.innerHTML = `
-              <div class="server-main-info">
-                  <span class="server-name">${escapeHtml(server.name)}</span>
-                  <span class="server-toggle ${server.active ? "active" : "inactive"}">
-                      ${server.active ? "Активен" : "Неактивен"}
-                  </span>
-                  <div class="small-metrics">
-                      ${renderMiniMetricBlock("cpu", server.name)}
-                      ${renderMiniMetricBlock("memory", server.name)}
-                      ${renderMiniMetricBlock("rootusage", server.name)}
-                      ${renderMiniMetricBlock("raidusage", server.name)}
-                      ${server.active ? renderMiniMetricBlock("ramdisk", server.name) : ""}
-                  </div>
-              </div>
-              <div class="server-actions">
-                  <button class="server-btn" onclick="serverAction('${server.name}', 'start', this)" ${server.active || server.busy ? "disabled" : ""}>Включить</button>
-                  <button class="server-btn" onclick="serverAction('${server.name}', 'stop', this)" ${!server.active || server.busy ? "disabled" : ""}>Выключить</button>
-                  <span class="busy-indicator" style="${server.busy ? "" : "display:none"}">⏳</span>
-                  <button class="server-btn log-btn" onclick="showLog('${server.name}')">Лог старта</button>
-                  <button class="server-btn log-btn" onclick="showLogStop('${server.name}')">Лог остановки</button>
-                  <button class="server-btn log-btn" onclick="toggleProperties('${server.name}')">Редактировать server.properties</button>
-                  <button class="server-btn log-btn" onclick="toggleJvmArgs('${server.name}')">Редактировать user_jvm_args.txt</button>
-                  <button class="server-btn log-btn" onclick="openConfigManager('${server.name}')">Конфиги (config)</button>
-                  <button class="server-btn log-btn" onclick="showDockerLog('${server.name}')" ${!server.active ? "disabled" : ""}>Логи контейнера</button>
-                  <button class="server-btn" onclick="showAddModModal('${server.name}')">Добавить мод</button>
-                  <button class="server-btn" onclick="showAddConfigModal('${server.name}')">Добавить конфиг</button>
-              </div>
-              <div class="properties-panel" id="properties-${server.name}" style="display:none;">
-                  <form id="prop-form-${server.name}"></form>
-                  <div style="margin-top:8px;">
-                      <button type="button" onclick="saveProperties('${server.name}')">Сохранить</button>
-                      <button type="button" onclick="toggleProperties('${server.name}')">Отмена</button>
-                      <span id="props-status-${server.name}"></span>
-                  </div>
-              </div>
-              <div class="jvmargs-panel" id="jvmargs-${server.name}" style="display:none;">
-                  <textarea style="width:100%;height:400px;" id="jvmargs-text-${server.name}"></textarea>
-                  <br>
-                  <button type="button" onclick="saveJvmArgs('${server.name}')">Сохранить</button>
-                  <button type="button" onclick="toggleJvmArgs('${server.name}')">Отмена</button>
-                  <span id="jvmargs-status-${server.name}"></span>
-              </div>
+            <div class="server-main-info">
+                <span class="server-name">${escapeHtml(server.name)}</span>
+                <span class="server-toggle ${server.active ? "active" : "inactive"}">
+                    ${server.active ? "Активен" : "Неактивен"}
+                </span>
+                <div class="small-metrics">
+                    ${renderMiniMetricBlock("cpu", server.name)}
+                    ${renderMiniMetricBlock("memory", server.name)}
+                    ${renderMiniMetricBlock("rootusage", server.name)}
+                    ${renderMiniMetricBlock("raidusage", server.name)}
+                    ${server.active ? renderMiniMetricBlock("ramdisk", server.name) : ""}
+                </div>
+            </div>
+            <div class="server-actions-group">
+                <div class="server-actions-row">
+                <button class="server-btn" onclick="serverAction('${server.name}', 'start', this)" ${server.active || server.busy ? "disabled" : ""}>Включить</button>
+                <button class="server-btn" onclick="serverAction('${server.name}', 'stop', this)" ${!server.active || server.busy ? "disabled" : ""}>Выключить</button>
+                <span class="busy-indicator" style="${server.busy ? "" : "display:none"}">⏳</span>
+                </div>
+                <div class="server-actions-row">
+                <button class="server-btn log-btn" onclick="showLog('${server.name}')">Лог старта</button>
+                <button class="server-btn log-btn" onclick="showLogStop('${server.name}')">Лог остановки</button>
+                <button class="server-btn log-btn" onclick="showDockerLog('${server.name}')" ${!server.active ? "disabled" : ""}>Логи контейнера</button>
+                </div>
+                <div class="server-actions-row">
+                <button class="server-btn log-btn" onclick="toggleProperties('${server.name}')">Редактировать server.properties</button>
+                <button class="server-btn log-btn" onclick="toggleJvmArgs('${server.name}')">Редактировать user_jvm_args.txt</button>
+                <button class="server-btn log-btn" onclick="openConfigManager('${server.name}')">Конфиги (config)</button>
+                </div>
+                <div class="server-actions-row">
+                <button class="server-btn" onclick="showAddModModal('${server.name}')">Добавить мод</button>
+                <button class="server-btn" onclick="showAddConfigModal('${server.name}')">Добавить конфиг</button>
+                </div>
+            </div>
+            <div class="properties-panel" id="properties-${server.name}" style="display:none;">
+                <form id="prop-form-${server.name}"></form>
+                <div style="margin-top:8px;">
+                    <button type="button" onclick="saveProperties('${server.name}')">Сохранить</button>
+                    <button type="button" onclick="toggleProperties('${server.name}')">Отмена</button>
+                    <span id="props-status-${server.name}"></span>
+                </div>
+            </div>
+            <div class="jvmargs-panel" id="jvmargs-${server.name}" style="display:none;">
+                <textarea style="width:100%;height:400px;" id="jvmargs-text-${server.name}"></textarea>
+                <br>
+                <button type="button" onclick="saveJvmArgs('${server.name}')">Сохранить</button>
+                <button type="button" onclick="toggleJvmArgs('${server.name}')">Отмена</button>
+                <span id="jvmargs-status-${server.name}"></span>
+            </div>
             `;
             return li;
         }
