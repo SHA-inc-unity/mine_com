@@ -335,11 +335,11 @@
                 <button class="server-btn log-btn" onclick="toggleProperties('${server.name}')">Редактировать server.properties</button>
                 <button class="server-btn log-btn" onclick="toggleJvmArgs('${server.name}')">Редактировать user_jvm_args.txt</button>
                 <button class="server-btn log-btn" onclick="openConfigManager('${server.name}')">Конфиги (config)</button>
-                <button class="server-btn" onclick="openRconModal('${server.name}')">RCON</button>
                 </div>
                 <div class="server-actions-row">
                 <button class="server-btn" onclick="showAddModModal('${server.name}')">Добавить мод</button>
                 <button class="server-btn" onclick="showAddConfigModal('${server.name}')">Добавить конфиг</button>
+                <button class="server-btn" onclick="openRconModal('${server.name}')">RCON</button>
                 </div>
             </div>
             <div class="properties-panel" id="properties-${server.name}" style="display:none;">
