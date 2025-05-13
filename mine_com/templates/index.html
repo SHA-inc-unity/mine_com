@@ -156,6 +156,9 @@
         let openedPropertiesPanel = null;
         let openedJvmArgsPanel = null;
         let currentAddTarget = null;
+        let currentConfigServer = null;
+        let currentConfigPath = '';
+        let selectedConfigFile = '';
 
         // --- Модалки для модов и конфигов ---
         function showAddModModal(server) {
@@ -259,6 +262,13 @@
                 .then(data => {
                     renderServers(data.servers);
                 });
+        }
+        function closeConfigManager() {
+            document.getElementById('configManagerModal').style.display = 'none';
+            document.getElementById('config-tree').innerHTML = '';
+            document.getElementById('config-file-edit').style.display = 'none';
+            document.getElementById('config-file-empty').style.display = '';
+            autoRefreshEnabled = true;
         }
         function renderServers(servers) {
             const ul = document.getElementById('server-list');
@@ -513,6 +523,36 @@
             loadConfigTree();
             autoRefreshEnabled = false;
         }
+        function loadConfigTree(path = '') {
+            fetch(`/server/${currentConfigServer}/config/list?path=${encodeURIComponent(path)}`)
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('config-path').textContent = 'config/' + (data.current !== '.' ? data.current : '');
+                    const ul = document.getElementById('config-tree');
+                    ul.innerHTML = '';
+                    if (data.parent !== null) {
+                        const li = document.createElement('li');
+                        li.innerHTML = '<b>⬅ .. (Назад)</b>';
+                        li.style.cursor = 'pointer';
+                        li.onclick = () => { loadConfigTree(data.parent) };
+                        ul.appendChild(li);
+                    }
+                    data.items.forEach(item => {
+                        const li = document.createElement('li');
+                        li.style.cursor = 'pointer';
+                        li.style.padding = '3px 2px';
+                        if (item.type === 'dir') {
+                            li.innerHTML = `📁 <b>${item.name}</b>`;
+                            li.onclick = () => { loadConfigTree((data.current === '.' ? '' : data.current + '/') + item.name) };
+                        } else {
+                            li.innerHTML = `📄 ${item.name}`;
+                            li.onclick = () => { loadConfigFile((data.current === '.' ? '' : data.current + '/') + item.name) };
+                        }
+                        ul.appendChild(li);
+                    });
+                    showConfigFile(null);
+                });
+        }
         function showDockerLog(server) {
             fetch(`/server/${server}/docker_log`)
                 .then(r => r.json())
@@ -657,6 +697,48 @@
             .then(r => r.json())
             .then(d => {
                 const status = document.getElementById(`jvmargs-status-${server}`);
+                if (d.success) {
+                    status.textContent = "Сохранено!";
+                    status.style.color = "green";
+                } else {
+                    status.textContent = d.error || "Ошибка!";
+                    status.style.color = "red";
+                }
+            });
+        }
+        function loadConfigFile(path) {
+            selectedConfigFile = path;
+            fetch(`/server/${currentConfigServer}/config/file?path=${encodeURIComponent(path)}`)
+                .then(r => r.json())
+                .then(data => {
+                    showConfigFile(data);
+                });
+        }
+        function showConfigFile(data) {
+            const edit = document.getElementById('config-file-edit');
+            const empty = document.getElementById('config-file-empty');
+            if (data && data.text !== undefined) {
+                edit.style.display = '';
+                empty.style.display = 'none';
+                document.getElementById('config-filename').textContent = data.filename;
+                document.getElementById('config-file-text').value = data.text;
+                document.getElementById('config-save-status').textContent = '';
+            } else {
+                edit.style.display = 'none';
+                empty.style.display = '';
+            }
+        }
+        function saveConfigFile() {
+            if (!selectedConfigFile) return;
+            const text = document.getElementById('config-file-text').value;
+            fetch(`/server/${currentConfigServer}/config/file?path=${encodeURIComponent(selectedConfigFile)}`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({text: text})
+            })
+            .then(r => r.json())
+            .then(d => {
+                const status = document.getElementById('config-save-status');
                 if (d.success) {
                     status.textContent = "Сохранено!";
                     status.style.color = "green";
