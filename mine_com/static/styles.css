@@ -1,4 +1,3 @@
-/* Основные стили */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -10,7 +9,6 @@ h1, h2 {
     margin-bottom: 20px;
 }
 
-/* Стили серверов */
 .server-list {
     list-style-type: none;
     padding: 0;
@@ -32,8 +30,6 @@ h1, h2 {
     margin-bottom: 10px;
     position: relative;
 }
-
-/* Маленькие графики справа от инфо */
 
 .small-metrics {
     display: flex;
@@ -64,7 +60,7 @@ h1, h2 {
     fill: none;
     stroke: #4dabf7;
     stroke-width: 7;
-    stroke-dasharray: 138.2; /* 2 * π * 22 */
+    stroke-dasharray: 138.2;
     stroke-dashoffset: 138.2;
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
@@ -85,7 +81,6 @@ h1, h2 {
     pointer-events: none;
 }
 
-/* Шапка */
 .header {
     display: flex;
     justify-content: space-between;
@@ -106,7 +101,6 @@ h1, h2 {
     background: #c82333;
 }
 
-/* Контейнер с графиками */
 .metrics-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -114,7 +108,6 @@ h1, h2 {
     margin-top: 40px;
 }
 
-/* Стили графиков */
 .metric-item {
     text-align: center;
     padding: 20px;
@@ -148,7 +141,7 @@ h1, h2 {
 
 .progress-bar {
     stroke: #4dabf7;
-    stroke-dasharray: 339; /* 2 * π * r (2 * 3.1416 * 54 ≈ 339) */
+    stroke-dasharray: 339;
     stroke-dashoffset: calc(339 - (339 * var(--percent) / 100));
     transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -165,7 +158,6 @@ h1, h2 {
     font-size: 14px;
 }
 
-/* Адаптивность */
 @media (max-width: 768px) {
     .metrics-container {
         grid-template-columns: 1fr 1fr;
@@ -192,7 +184,6 @@ h1, h2 {
     }
 }
 
-/* Сервер toggle (активность серверов) */
 .server-toggle {
     display: inline-block;
     margin-left: 18px;
@@ -264,5 +255,5 @@ h1, h2 {
     border: 1px solid #bbb;
     border-radius: 4px;
     margin-bottom: 4px;
-    height: 400px; /* увеличено */
+    height: 400px;
 }

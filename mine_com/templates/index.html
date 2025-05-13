@@ -6,7 +6,6 @@
     <title>Minecraft Servers Monitor</title>
     <link rel="stylesheet" href="static/styles.css">
     <style>
-        /* Для версии */
         #version-box {
             position: absolute;
             top: 12px;
@@ -89,8 +88,118 @@
         </div>
     </div>
 
+    <!-- Менеджер config файлов (модалка) -->
+    <div id="configManagerModal" style="display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.3); z-index:9999;">
+      <div style="background:#fff; margin:30px auto; max-width:900px; border-radius:12px; padding:22px 26px; box-shadow:0 8px 32px rgba(0,0,0,0.12); display:flex; gap:40px; min-height:60vh;">
+        <div style="min-width:220px; border-right:1px solid #eee; padding-right:14px;">
+          <div id="config-path" style="margin-bottom:12px; color:#888; font-size:13px"></div>
+          <ul id="config-tree" style="list-style:none; padding:0; margin:0;"></ul>
+        </div>
+        <div style="flex:1;">
+          <div id="config-file-edit" style="display:none;">
+            <div id="config-filename" style="font-weight:bold; margin-bottom:8px"></div>
+            <textarea id="config-file-text" style="width:100%;height:340px;font-family:monospace;"></textarea>
+            <br>
+            <button onclick="saveConfigFile()" style="margin-top:10px">Сохранить</button>
+            <span id="config-save-status" style="margin-left:16px"></span>
+          </div>
+          <div id="config-file-empty" style="color:#888;">Выберите файл для редактирования.</div>
+        </div>
+        <button onclick="closeConfigManager()" style="position:absolute; right:20px; top:13px; background:#e54; color:#fff; border:none; border-radius:6px; padding:3px 10px; font-size:18px; cursor:pointer;">×</button>
+      </div>
+    </div>
+
     <script>
-        // ---------- Версия ----------
+        let currentConfigServer = null;
+        let currentConfigPath = '';
+        let selectedConfigFile = '';
+
+        function openConfigManager(server) {
+            currentConfigServer = server;
+            currentConfigPath = '';
+            selectedConfigFile = '';
+            document.getElementById('configManagerModal').style.display = '';
+            loadConfigTree();
+        }
+        function closeConfigManager() {
+            document.getElementById('configManagerModal').style.display = 'none';
+            document.getElementById('config-tree').innerHTML = '';
+            document.getElementById('config-file-edit').style.display = 'none';
+            document.getElementById('config-file-empty').style.display = '';
+        }
+        function loadConfigTree(path = '') {
+            fetch(`/server/${currentConfigServer}/config/list?path=${encodeURIComponent(path)}`)
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('config-path').textContent = 'config/' + (data.current !== '.' ? data.current : '');
+                    const ul = document.getElementById('config-tree');
+                    ul.innerHTML = '';
+                    if (data.parent !== null) {
+                        const li = document.createElement('li');
+                        li.innerHTML = '<b>⬅ .. (Назад)</b>';
+                        li.style.cursor = 'pointer';
+                        li.onclick = () => { loadConfigTree(data.parent) };
+                        ul.appendChild(li);
+                    }
+                    data.items.forEach(item => {
+                        const li = document.createElement('li');
+                        li.style.cursor = 'pointer';
+                        li.style.padding = '3px 2px';
+                        if (item.type === 'dir') {
+                            li.innerHTML = `📁 <b>${item.name}</b>`;
+                            li.onclick = () => { loadConfigTree((data.current === '.' ? '' : data.current + '/') + item.name) };
+                        } else {
+                            li.innerHTML = `📄 ${item.name}`;
+                            li.onclick = () => { loadConfigFile((data.current === '.' ? '' : data.current + '/') + item.name) };
+                        }
+                        ul.appendChild(li);
+                    });
+                    showConfigFile(null);
+                });
+        }
+        function loadConfigFile(path) {
+            selectedConfigFile = path;
+            fetch(`/server/${currentConfigServer}/config/file?path=${encodeURIComponent(path)}`)
+                .then(r => r.json())
+                .then(data => {
+                    showConfigFile(data);
+                });
+        }
+        function showConfigFile(data) {
+            const edit = document.getElementById('config-file-edit');
+            const empty = document.getElementById('config-file-empty');
+            if (data && data.text !== undefined) {
+                edit.style.display = '';
+                empty.style.display = 'none';
+                document.getElementById('config-filename').textContent = data.filename;
+                document.getElementById('config-file-text').value = data.text;
+                document.getElementById('config-save-status').textContent = '';
+            } else {
+                edit.style.display = 'none';
+                empty.style.display = '';
+            }
+        }
+        function saveConfigFile() {
+            if (!selectedConfigFile) return;
+            const text = document.getElementById('config-file-text').value;
+            fetch(`/server/${currentConfigServer}/config/file?path=${encodeURIComponent(selectedConfigFile)}`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({text: text})
+            })
+            .then(r => r.json())
+            .then(d => {
+                const status = document.getElementById('config-save-status');
+                if (d.success) {
+                    status.textContent = "Сохранено!";
+                    status.style.color = "green";
+                } else {
+                    status.textContent = d.error || "Ошибка!";
+                    status.style.color = "red";
+                }
+            });
+        }
+
         function updateVersion() {
             fetch('/get_version')
                 .then(r => r.json())
@@ -104,7 +213,6 @@
         updateVersion();
         setInterval(updateVersion, 60000);
 
-        // ---------- Серверы ----------
         function fetchServersAndRender() {
             fetch('/server_status')
                 .then(r => r.json())
@@ -146,6 +254,7 @@
                   <button class="server-btn log-btn" onclick="showLogStop('${server.name}')">Лог остановки</button>
                   <button class="server-btn log-btn" onclick="toggleProperties('${server.name}')">Редактировать server.properties</button>
                   <button class="server-btn log-btn" onclick="toggleJvmArgs('${server.name}')">Редактировать user_jvm_args.txt</button>
+                  <button class="server-btn log-btn" onclick="openConfigManager('${server.name}')">Конфиги (config)</button>
               </div>
               <div class="properties-panel" id="properties-${server.name}" style="display:none;">
                   <form id="prop-form-${server.name}"></form>
@@ -178,7 +287,6 @@
             `;
         }
 
-        // ---------- Метрики серверов ----------
         function fetchMiniServerMetrics(server, isActive) {
             fetch(`/server/${server}/metrics`)
                 .then(response => response.json())
@@ -203,7 +311,6 @@
                 text.textContent = (percent !== undefined && percent !== null && percent !== "N/A") ? `${percent}%` : '--%';
         }
 
-        // ---------- Общие метрики ----------
         function updateResources() {
             fetch('/resources')
                 .then(response => response.json())
@@ -238,7 +345,6 @@
             }
         }
 
-        // ---------- Остальной JS: создание, действия, свойства, jvmargs ----------
         function showCreateServerModal() {
             document.getElementById('createServerModal').style.display = '';
             document.getElementById('new-server-name').value = '';
@@ -414,11 +520,9 @@
             });
         }
 
-        // Интервалы обновления
         setInterval(updateResources, 2500);
         setInterval(updateServerStatus, 2000);
 
-        // Первый запуск
         updateResources();
         fetchServersAndRender();
     </script>

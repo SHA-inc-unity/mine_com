@@ -376,6 +376,56 @@ def create_server():
         return jsonify({'success': True, 'message': f'Сервер {server_name} создан!'})
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
+    
+@app.route('/server/<server_name>/config/list', methods=['GET'])
+def list_config_files(server_name):
+    import os
+    rel_path = request.args.get('path', '')  # относительный путь внутри config
+    config_root = os.path.join(MINECRAFT_SERVERS_DIR, server_name, 'neoforge-server', 'config')
+    abs_path = os.path.normpath(os.path.join(config_root, rel_path))
+    # Защищаемся от выхода выше config
+    if not abs_path.startswith(config_root):
+        return jsonify({'error': 'Недопустимый путь'}), 400
+    if not os.path.isdir(abs_path):
+        return jsonify({'error': 'Папка не найдена'}), 404
+    items = []
+    for name in sorted(os.listdir(abs_path)):
+        full = os.path.join(abs_path, name)
+        if os.path.isdir(full):
+            items.append({'name': name, 'type': 'dir'})
+        else:
+            items.append({'name': name, 'type': 'file'})
+    parent = None
+    if abs_path != config_root:
+        # Определяем относительный путь к родителю
+        parent = os.path.relpath(os.path.dirname(abs_path), config_root)
+        if parent == '.':
+            parent = ''
+    return jsonify({'items': items, 'parent': parent, 'current': os.path.relpath(abs_path, config_root)})
+
+@app.route('/server/<server_name>/config/file', methods=['GET', 'POST'])
+def config_file(server_name):
+    import os
+    rel_path = request.args.get('path', '')
+    config_root = os.path.join(MINECRAFT_SERVERS_DIR, server_name, 'neoforge-server', 'config')
+    abs_path = os.path.normpath(os.path.join(config_root, rel_path))
+    if not abs_path.startswith(config_root):
+        return jsonify({'error': 'Недопустимый путь'}), 400
+    if request.method == 'GET':
+        if not os.path.isfile(abs_path):
+            return jsonify({'error': 'Файл не найден'}), 404
+        with open(abs_path, 'r', encoding='utf-8', errors='replace') as f:
+            text = f.read()
+        return jsonify({'text': text, 'filename': os.path.basename(abs_path)})
+    else:  # POST (сохранение)
+        data = request.get_json()
+        text = data.get('text', '')
+        try:
+            with open(abs_path, 'w', encoding='utf-8') as f:
+                f.write(text)
+            return jsonify({'success': True})
+        except Exception as e:
+            return jsonify({'success': False, 'error': str(e)}), 500
 
 def update_bluemap_config(server_name):
     """
