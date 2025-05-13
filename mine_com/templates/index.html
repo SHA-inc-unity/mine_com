@@ -327,17 +327,18 @@
             });
         }
         function updateMiniMetricIfChanged(type, server, percent) {
-            if (!previousMiniMetrics[server]) previousMiniMetrics[server] = {};
             if (!lastShownMiniMetrics[server]) lastShownMiniMetrics[server] = {};
 
+            // Если пришло новое корректное значение — сохранить и показать его
             if (percent !== undefined && percent !== null && percent !== "N/A") {
-                // Новое значение — показать и запомнить
-                setMiniMetric(type, server, percent);
-                previousMiniMetrics[server][type] = percent;
                 lastShownMiniMetrics[server][type] = percent;
+                setMiniMetric(type, server, percent);
             } else if (lastShownMiniMetrics[server][type] !== undefined && lastShownMiniMetrics[server][type] !== null) {
-                // Нет нового значения, но есть последнее — показать последнее
+                // Если новых данных нет, показывать последнее корректное значение
                 setMiniMetric(type, server, lastShownMiniMetrics[server][type]);
+            } else {
+                // Ни разу не было значения — показываем "--%"
+                setMiniMetric(type, server, null);
             }
         }
         function setMiniMetric(type, server, percent) {
