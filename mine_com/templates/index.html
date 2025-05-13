@@ -19,6 +19,12 @@
             font-weight: bold;
             z-index: 10;
         }
+        /* Расширенное расстояние между миниметриками */
+        .small-metrics {
+            display: flex;
+            gap: 32px;
+            margin-left: auto;
+        }
     </style>
 </head>
 <body>
@@ -120,6 +126,9 @@
         let currentConfigServer = null;
         let currentConfigPath = '';
         let selectedConfigFile = '';
+
+        // Для хранения предыдущих значений миниметрик
+        const previousMiniMetrics = {};
 
         function openConfigManager(server) {
             currentConfigServer = server;
@@ -234,9 +243,8 @@
             ul.innerHTML = '';
             servers.forEach(server => {
                 ul.appendChild(renderServerItem(server));
-                fetchMiniServerMetrics(server.name, server.active);
             });
-            // Если нужно восстанавливать открытые редакторы (оставим на всякий случай)
+            // Восстановление редакторов как прежде
             if (openedPropertiesPanel) {
                 setTimeout(() => toggleProperties(openedPropertiesPanel, true), 100);
             }
@@ -303,16 +311,33 @@
             `;
         }
 
-        function fetchMiniServerMetrics(server, isActive) {
-            fetch(`/server/${server}/metrics`)
-                .then(response => response.json())
-                .then(data => {
-                    setMiniMetric('cpu', server, data.cpu);
-                    setMiniMetric('memory', server, data.memory.percent);
-                    setMiniMetric('rootusage', server, data.root_usage_percent);
-                    setMiniMetric('raidusage', server, data.raid_usage_percent);
-                    if (isActive) setMiniMetric('ramdisk', server, data.ramdisk_percent);
-                });
+        // --- Миниметрики обновляются отдельно ---
+        function fetchAndUpdateMiniMetrics() {
+            // Получаем текущий список серверов (имена) из DOM
+            const serverItems = document.querySelectorAll('.server-item');
+            serverItems.forEach(item => {
+                const server = item.dataset.server;
+                if (!server) return;
+                fetch(`/server/${server}/metrics`)
+                    .then(response => response.json())
+                    .then(data => {
+                        updateMiniMetricIfChanged('cpu', server, data.cpu);
+                        updateMiniMetricIfChanged('memory', server, data.memory.percent);
+                        updateMiniMetricIfChanged('rootusage', server, data.root_usage_percent);
+                        updateMiniMetricIfChanged('raidusage', server, data.raid_usage_percent);
+                        if (data.ramdisk_percent !== undefined) {
+                            updateMiniMetricIfChanged('ramdisk', server, data.ramdisk_percent);
+                        }
+                    });
+            });
+        }
+        function updateMiniMetricIfChanged(type, server, percent) {
+            if (!previousMiniMetrics[server]) previousMiniMetrics[server] = {};
+            const prev = previousMiniMetrics[server][type];
+            if (prev !== percent) {
+                setMiniMetric(type, server, percent);
+                previousMiniMetrics[server][type] = percent;
+            }
         }
         function setMiniMetric(type, server, percent) {
             const svg = document.getElementById(`mini-${type}-circle-${server}`);
@@ -326,6 +351,7 @@
             if (text)
                 text.textContent = (percent !== undefined && percent !== null && percent !== "N/A") ? `${percent}%` : '--%';
         }
+        // --- /Миниметрики ---
 
         function updateResources() {
             fetch('/resources')
@@ -546,12 +572,17 @@
 
         setInterval(updateResources, 2500);
 
+        // Миниметрики обновляются отдельно
+        setInterval(fetchAndUpdateMiniMetrics, 2000);
+
         setInterval(() => {
             if (autoRefreshEnabled) updateServerStatus();
         }, 2000);
 
         updateResources();
         fetchServersAndRender();
+        // Первый раз также сразу запустим обновление миниметрик
+        fetchAndUpdateMiniMetrics();
     </script>
 </body>
 </html>
