@@ -40,6 +40,8 @@
         <input id="server-zip" type="file" accept=".zip">
         <button onclick="createServer()">Создать</button>
         <button onclick="hideCreateServerModal()">Отмена</button>
+        <progress id="upload-progress" value="0" max="100" style="width:200px; display:none;"></progress>
+        <span id="progress-percent" style="margin-left:8px; display:none;">0%</span>
         <span id="create-server-status"></span>
     </div>
     <ul class="server-list" id="server-list"></ul>
@@ -404,6 +406,9 @@
             const name = document.getElementById('new-server-name').value;
             const zipFile = document.getElementById('server-zip').files[0];
             const status = document.getElementById('create-server-status');
+            const progress = document.getElementById('upload-progress');
+            const progressPercent = document.getElementById('progress-percent');
+            status.textContent = "";
             if (!name) {
                 status.style.color = "red";
                 status.textContent = "Введите имя сервера";
@@ -418,12 +423,35 @@
             formData.append('server_name', name);
             formData.append('zip_file', zipFile);
 
-            fetch('/create_server', {
-                method: 'POST',
-                body: formData
-            })
-            .then(r => r.json())
-            .then(d => {
+            // Показываем прогресс-бар
+            progress.value = 0;
+            progress.max = 100;
+            progress.style.display = '';
+            progressPercent.textContent = "0%";
+            progressPercent.style.display = '';
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/create_server', true);
+
+            xhr.upload.onprogress = function(e) {
+                if (e.lengthComputable) {
+                    let percent = Math.round((e.loaded / e.total) * 100);
+                    progress.value = percent;
+                    progressPercent.textContent = percent + "%";
+                }
+            };
+
+            xhr.onload = function() {
+                progress.style.display = 'none';
+                progressPercent.style.display = 'none';
+                let d;
+                try {
+                    d = JSON.parse(xhr.responseText);
+                } catch(e) {
+                    status.textContent = "Ошибка ответа сервера";
+                    status.style.color = "red";
+                    return;
+                }
                 if (d.success) {
                     status.style.color = "green";
                     status.textContent = "Сервер создан!";
@@ -432,7 +460,16 @@
                     status.style.color = "red";
                     status.textContent = d.error || 'Ошибка!';
                 }
-            });
+            };
+
+            xhr.onerror = function() {
+                progress.style.display = 'none';
+                progressPercent.style.display = 'none';
+                status.style.color = "red";
+                status.textContent = "Ошибка загрузки на сервер";
+            };
+
+            xhr.send(formData);
         }
         function updateServerStatus() {
             fetch('/server_status')
