@@ -59,10 +59,19 @@ def get_servers_with_status():
     return servers
 
 def is_server_busy(server_name):
-    proc = server_processes.get(server_name)
-    if proc and proc.poll() is None:
-        return True
-    return False
+    """
+    Проверяет, запущен ли контейнер сервера с именем {server_name}-server.
+    Возвращает True если контейнер работает, иначе False.
+    """
+    try:
+        # Смотрим только активные контейнеры (-q чтобы получить только id)
+        output = subprocess.check_output(
+            ["docker", "ps", "--filter", f"name=^{server_name}-server$", "--format", "{{.ID}}"],
+            stderr=subprocess.DEVNULL
+        ).decode().strip()
+        return bool(output)
+    except Exception:
+        return False
 
 @app.route('/')
 def list_servers():
