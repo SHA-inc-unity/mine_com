@@ -110,6 +110,10 @@
     </div>
 
     <script>
+        // Для отслеживания открытых редакторов:
+        let openedPropertiesPanel = null;
+        let openedJvmArgsPanel = null;
+
         let currentConfigServer = null;
         let currentConfigPath = '';
         let selectedConfigFile = '';
@@ -227,6 +231,13 @@
                 ul.appendChild(renderServerItem(server));
                 fetchMiniServerMetrics(server.name, server.active);
             });
+            // Восстанавливаем открытые редакторы после перерисовки
+            if (openedPropertiesPanel) {
+                setTimeout(() => toggleProperties(openedPropertiesPanel, true), 100);
+            }
+            if (openedJvmArgsPanel) {
+                setTimeout(() => toggleJvmArgs(openedJvmArgsPanel, true), 100);
+            }
         }
         function renderServerItem(server) {
             const li = document.createElement('li');
@@ -405,7 +416,7 @@
                 .then(r => r.json())
                 .then(d => alert(d.log));
         }
-        function toggleProperties(server) {
+        function toggleProperties(server, restoring=false) {
             const panel = document.getElementById(`properties-${server}`);
             if (panel.style.display === "none") {
                 fetch(`/server/${server}/properties`)
@@ -415,12 +426,14 @@
                             panel.style.display = "";
                             renderPropertiesForm(server, d.text);
                             document.getElementById(`props-status-${server}`).textContent = "";
+                            openedPropertiesPanel = server;
                         } else {
                             alert(d.error || "Ошибка загрузки");
                         }
                     });
-            } else {
+            } else if (!restoring) {
                 panel.style.display = "none";
+                openedPropertiesPanel = null;
             }
         }
         function renderPropertiesForm(server, text) {
@@ -470,7 +483,7 @@
                 }
             });
         }
-        function toggleJvmArgs(server) {
+        function toggleJvmArgs(server, restoring=false) {
             const panel = document.getElementById(`jvmargs-${server}`);
             if (panel.style.display === "none") {
                 fetch(`/server/${server}/jvmargs`)
@@ -480,12 +493,14 @@
                             panel.style.display = "";
                             document.getElementById(`jvmargs-text-${server}`).value = d.text;
                             document.getElementById(`jvmargs-status-${server}`).textContent = "";
+                            openedJvmArgsPanel = server;
                         } else {
                             alert(d.error || "Ошибка загрузки");
                         }
                     });
-            } else {
+            } else if (!restoring) {
                 panel.style.display = "none";
+                openedJvmArgsPanel = null;
             }
         }
         function saveJvmArgs(server) {

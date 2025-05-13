@@ -104,17 +104,17 @@ h1, h2 {
 .metrics-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 60px; /* было 30px, стало 60px */
+    gap: 60px;
     margin-top: 40px;
 }
 
 .metric-item {
-    margin: 0 12px;
     text-align: center;
     padding: 20px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin: 0 12px;
 }
 
 .progress-circle {
@@ -259,23 +259,13 @@ h1, h2 {
     height: 400px;
 }
 
-#configManagerModal .config-sidebar {
-    display: flex;
-    flex-direction: column;
-    min-width: 220px;
-    border-right: 1px solid #eee;
-    padding-right: 14px;
-    height: 100%;
-    box-sizing: border-box;
-}
-
+/* Для скролла и ограничения высоты списка конфигов */
 #config-tree {
     max-height: 80vh;
     overflow-y: auto;
-    scrollbar-width: thin;         /* Firefox */
-    scrollbar-color: #bbb #f9f9f9; /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #bbb #f9f9f9;
 }
-/* Для Chrome, Edge, Safari */
 #config-tree::-webkit-scrollbar {
     width: 8px;
     background: #f9f9f9;
