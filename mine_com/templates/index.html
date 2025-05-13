@@ -338,9 +338,6 @@
             } else if (lastShownMiniMetrics[server][type] !== undefined && lastShownMiniMetrics[server][type] !== null) {
                 // Нет нового значения, но есть последнее — показать последнее
                 setMiniMetric(type, server, lastShownMiniMetrics[server][type]);
-            } else {
-                // Нет значения вообще — показать --%
-                setMiniMetric(type, server, null);
             }
         }
         function setMiniMetric(type, server, percent) {
