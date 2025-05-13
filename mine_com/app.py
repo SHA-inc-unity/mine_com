@@ -527,5 +527,61 @@ def patch_bluemap_configs(server_name):
         except Exception as ex:
             print(f"Ошибка обновления {path}: {ex}")
 
+@app.route('/server/<server_name>/add_mod', methods=['POST'])
+def add_mod(server_name):
+    if 'logged_in' not in session or not session['logged_in']:
+        return jsonify({'success': False, 'error': 'Unauthorized'}), 401
+    mod_file = request.files.get('mod_file')
+    if not mod_file or not mod_file.filename.endswith('.jar'):
+        return jsonify({'success': False, 'error': 'Неверный .jar файл'}), 400
+    mods_dir = os.path.join(MINECRAFT_SERVERS_DIR, server_name, "neoforge-server", "mods")
+    os.makedirs(mods_dir, exist_ok=True)
+    target_path = os.path.join(mods_dir, mod_file.filename)
+    if os.path.exists(target_path):
+        return jsonify({'success': False, 'error': 'Файл уже существует'}), 400
+    try:
+        mod_file.save(target_path)
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/server/<server_name>/add_config', methods=['POST'])
+def add_config(server_name):
+    if 'logged_in' not in session or not session['logged_in']:
+        return jsonify({'success': False, 'error': 'Unauthorized'}), 401
+    config_file = request.files.get('config_file')
+    if not config_file:
+        return jsonify({'success': False, 'error': 'Файл не выбран'}), 400
+    allowed_ext = ['.zip', '.toml', '.json', '.cfh', '.json5']
+    filename = config_file.filename
+    if not any(filename.endswith(ext) for ext in allowed_ext):
+        return jsonify({'success': False, 'error': 'Недопустимый тип файла'}), 400
+    configs_dir = os.path.join(MINECRAFT_SERVERS_DIR, server_name, "neoforge-server", "config")
+    os.makedirs(configs_dir, exist_ok=True)
+    try:
+        if filename.endswith('.zip'):
+            import zipfile
+            with zipfile.ZipFile(config_file.stream) as zf:
+                for member in zf.infolist():
+                    if member.is_dir():
+                        continue
+                    relpath = os.path.normpath(member.filename)
+                    if '..' in relpath.split(os.sep):
+                        continue
+                    target_path = os.path.join(configs_dir, relpath)
+                    if os.path.exists(target_path):
+                        continue
+                    os.makedirs(os.path.dirname(target_path), exist_ok=True)
+                    with zf.open(member) as source, open(target_path, 'wb') as target:
+                        shutil.copyfileobj(source, target)
+        else:
+            target_path = os.path.join(configs_dir, filename)
+            if os.path.exists(target_path):
+                return jsonify({'success': False, 'error': 'Файл уже существует'}), 400
+            config_file.save(target_path)
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8390, debug=True)

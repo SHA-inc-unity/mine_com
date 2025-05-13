@@ -24,6 +24,22 @@
             gap: 32px;
             margin-left: auto;
         }
+        #addModModal, #addConfigModal {
+            position: fixed;
+            left: 0; top: 0; width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.3);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-inner {
+            background: #fff;
+            padding: 22px 34px;
+            border-radius: 10px;
+            min-width: 340px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        }
     </style>
 </head>
 <body>
@@ -46,6 +62,27 @@
         <span id="create-server-status"></span>
     </div>
     <ul class="server-list" id="server-list"></ul>
+
+    <!-- Модалка для добавления мода -->
+    <div id="addModModal">
+        <div class="modal-inner">
+            <h3>Добавить мод (.jar)</h3>
+            <input id="mod-file" type="file" accept=".jar">
+            <button onclick="addMod()">Загрузить</button>
+            <button onclick="hideAddModModal()">Отмена</button>
+            <span id="add-mod-status" style="margin-left:10px;"></span>
+        </div>
+    </div>
+    <!-- Модалка для добавления конфига -->
+    <div id="addConfigModal">
+        <div class="modal-inner">
+            <h3>Добавить конфиг (.zip, .toml, .json, .cfh, .json5)</h3>
+            <input id="config-file" type="file" accept=".zip,.toml,.json,.cfh,.json5">
+            <button onclick="addConfig()">Загрузить</button>
+            <button onclick="hideAddConfigModal()">Отмена</button>
+            <span id="add-config-status" style="margin-left:10px;"></span>
+        </div>
+    </div>
 
     <h2>Системные метрики</h2>
     <div class="metrics-container">
@@ -118,102 +155,90 @@
         let autoRefreshEnabled = true;
         let openedPropertiesPanel = null;
         let openedJvmArgsPanel = null;
+        let currentAddTarget = null;
 
-        let currentConfigServer = null;
-        let currentConfigPath = '';
-        let selectedConfigFile = '';
-
-        // Для хранения предыдущих и последних показанных значений миниметрик
-        const previousMiniMetrics = {};
-        const lastShownMiniMetrics = {};
-
-        function openConfigManager(server) {
-            currentConfigServer = server;
-            currentConfigPath = '';
-            selectedConfigFile = '';
-            document.getElementById('configManagerModal').style.display = '';
-            loadConfigTree();
-            autoRefreshEnabled = false;
+        // --- Модалки для модов и конфигов ---
+        function showAddModModal(server) {
+            currentAddTarget = server;
+            document.getElementById('addModModal').style.display = 'flex';
+            document.getElementById('mod-file').value = '';
+            document.getElementById('add-mod-status').textContent = '';
         }
-        function closeConfigManager() {
-            document.getElementById('configManagerModal').style.display = 'none';
-            document.getElementById('config-tree').innerHTML = '';
-            document.getElementById('config-file-edit').style.display = 'none';
-            document.getElementById('config-file-empty').style.display = '';
-            autoRefreshEnabled = true;
+        function hideAddModModal() {
+            document.getElementById('addModModal').style.display = 'none';
         }
-        function loadConfigTree(path = '') {
-            fetch(`/server/${currentConfigServer}/config/list?path=${encodeURIComponent(path)}`)
-                .then(r => r.json())
-                .then(data => {
-                    document.getElementById('config-path').textContent = 'config/' + (data.current !== '.' ? data.current : '');
-                    const ul = document.getElementById('config-tree');
-                    ul.innerHTML = '';
-                    if (data.parent !== null) {
-                        const li = document.createElement('li');
-                        li.innerHTML = '<b>⬅ .. (Назад)</b>';
-                        li.style.cursor = 'pointer';
-                        li.onclick = () => { loadConfigTree(data.parent) };
-                        ul.appendChild(li);
-                    }
-                    data.items.forEach(item => {
-                        const li = document.createElement('li');
-                        li.style.cursor = 'pointer';
-                        li.style.padding = '3px 2px';
-                        if (item.type === 'dir') {
-                            li.innerHTML = `📁 <b>${item.name}</b>`;
-                            li.onclick = () => { loadConfigTree((data.current === '.' ? '' : data.current + '/') + item.name) };
-                        } else {
-                            li.innerHTML = `📄 ${item.name}`;
-                            li.onclick = () => { loadConfigFile((data.current === '.' ? '' : data.current + '/') + item.name) };
-                        }
-                        ul.appendChild(li);
-                    });
-                    showConfigFile(null);
-                });
+        function showAddConfigModal(server) {
+            currentAddTarget = server;
+            document.getElementById('addConfigModal').style.display = 'flex';
+            document.getElementById('config-file').value = '';
+            document.getElementById('add-config-status').textContent = '';
         }
-        function loadConfigFile(path) {
-            selectedConfigFile = path;
-            fetch(`/server/${currentConfigServer}/config/file?path=${encodeURIComponent(path)}`)
-                .then(r => r.json())
-                .then(data => {
-                    showConfigFile(data);
-                });
+        function hideAddConfigModal() {
+            document.getElementById('addConfigModal').style.display = 'none';
         }
-        function showConfigFile(data) {
-            const edit = document.getElementById('config-file-edit');
-            const empty = document.getElementById('config-file-empty');
-            if (data && data.text !== undefined) {
-                edit.style.display = '';
-                empty.style.display = 'none';
-                document.getElementById('config-filename').textContent = data.filename;
-                document.getElementById('config-file-text').value = data.text;
-                document.getElementById('config-save-status').textContent = '';
-            } else {
-                edit.style.display = 'none';
-                empty.style.display = '';
+        function addMod() {
+            const file = document.getElementById('mod-file').files[0];
+            const status = document.getElementById('add-mod-status');
+            if (!file || !file.name.endsWith('.jar')) {
+                status.style.color = "red";
+                status.textContent = "Выберите .jar файл!";
+                return;
             }
-        }
-        function saveConfigFile() {
-            if (!selectedConfigFile) return;
-            const text = document.getElementById('config-file-text').value;
-            fetch(`/server/${currentConfigServer}/config/file?path=${encodeURIComponent(selectedConfigFile)}`, {
+            let formData = new FormData();
+            formData.append('mod_file', file);
+            fetch(`/server/${currentAddTarget}/add_mod`, {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({text: text})
+                body: formData
             })
             .then(r => r.json())
             .then(d => {
-                const status = document.getElementById('config-save-status');
                 if (d.success) {
-                    status.textContent = "Сохранено!";
                     status.style.color = "green";
+                    status.textContent = "Мод добавлен!";
+                    setTimeout(hideAddModModal, 1200);
                 } else {
-                    status.textContent = d.error || "Ошибка!";
                     status.style.color = "red";
+                    status.textContent = d.error || "Ошибка!";
                 }
             });
         }
+        function addConfig() {
+            const file = document.getElementById('config-file').files[0];
+            const status = document.getElementById('add-config-status');
+            if (!file) {
+                status.style.color = "red";
+                status.textContent = "Выберите файл!";
+                return;
+            }
+            const allowedExt = ['.zip', '.toml', '.json', '.cfh', '.json5'];
+            let ok = false;
+            for (let ext of allowedExt) {
+                if (file.name.endsWith(ext)) { ok = true; break; }
+            }
+            if (!ok) {
+                status.style.color = "red";
+                status.textContent = "Недопустимый тип файла!";
+                return;
+            }
+            let formData = new FormData();
+            formData.append('config_file', file);
+            fetch(`/server/${currentAddTarget}/add_config`, {
+                method: 'POST',
+                body: formData
+            })
+            .then(r => r.json())
+            .then(d => {
+                if (d.success) {
+                    status.style.color = "green";
+                    status.textContent = "Конфиг добавлен!";
+                    setTimeout(hideAddConfigModal, 1200);
+                } else {
+                    status.style.color = "red";
+                    status.textContent = d.error || "Ошибка!";
+                }
+            });
+        }
+        // --- /Модалки для модов и конфигов ---
 
         function updateVersion() {
             fetch('/get_version')
@@ -275,6 +300,9 @@
                   <button class="server-btn log-btn" onclick="toggleProperties('${server.name}')">Редактировать server.properties</button>
                   <button class="server-btn log-btn" onclick="toggleJvmArgs('${server.name}')">Редактировать user_jvm_args.txt</button>
                   <button class="server-btn log-btn" onclick="openConfigManager('${server.name}')">Конфиги (config)</button>
+                  <button class="server-btn log-btn" onclick="showDockerLog('${server.name}')" ${!server.active ? "disabled" : ""}>Логи контейнера</button>
+                  <button class="server-btn" onclick="showAddModModal('${server.name}')">Добавить мод</button>
+                  <button class="server-btn" onclick="showAddConfigModal('${server.name}')">Добавить конфиг</button>
               </div>
               <div class="properties-panel" id="properties-${server.name}" style="display:none;">
                   <form id="prop-form-${server.name}"></form>
@@ -394,7 +422,6 @@
                 }
             }
         }
-
         function showCreateServerModal() {
             document.getElementById('createServerModal').style.display = '';
             document.getElementById('new-server-name').value = '';
