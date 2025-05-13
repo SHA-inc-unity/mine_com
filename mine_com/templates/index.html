@@ -313,32 +313,29 @@
                     .then(response => response.json())
                     .then(data => {
                         updateMiniMetricIfChanged('cpu', server, data.cpu);
-                        updateMiniMetricIfChanged('memory', server, data.memory.percent);
+                        updateMiniMetricIfChanged('memory', server, data.memory && data.memory.percent);
                         updateMiniMetricIfChanged('rootusage', server, data.root_usage_percent);
                         updateMiniMetricIfChanged('raidusage', server, data.raid_usage_percent);
-                        if (data.ramdisk_percent !== undefined) {
+                        if (typeof data.ramdisk_percent !== 'undefined') {
                             updateMiniMetricIfChanged('ramdisk', server, data.ramdisk_percent);
                         }
                     })
-                    .catch(() => {
-                        // При ошибке fetch оставляем последнее значение на экране (ничего не делаем)
-                        // Можно добавить вывод "--%" если нужно явно
+                    .catch((err) => {
+                        console.error('Ошибка при фетче метрик:', err);
                     });
             });
         }
         function updateMiniMetricIfChanged(type, server, percent) {
+            if (!window.lastShownMiniMetrics) window.lastShownMiniMetrics = {};
             if (!lastShownMiniMetrics[server]) lastShownMiniMetrics[server] = {};
 
-            // Если пришло новое корректное значение — сохранить и показать его
             if (percent !== undefined && percent !== null && percent !== "N/A") {
                 lastShownMiniMetrics[server][type] = percent;
                 setMiniMetric(type, server, percent);
             } else if (lastShownMiniMetrics[server][type] !== undefined && lastShownMiniMetrics[server][type] !== null) {
-                // Если новых данных нет, показывать последнее корректное значение
                 setMiniMetric(type, server, lastShownMiniMetrics[server][type]);
             } else {
-                // Ни разу не было значения — показываем "--%"
-                // setMiniMetric(type, server, null);
+                setMiniMetric(type, server, null); // Показывать "--%"
             }
         }
         function setMiniMetric(type, server, percent) {
@@ -351,12 +348,12 @@
             bar.setAttribute('stroke-dasharray', circumference);
             bar.setAttribute(
                 'stroke-dashoffset',
-                percent !== undefined && percent !== null
+                percent !== undefined && percent !== null && !isNaN(percent)
                     ? circumference - (percent / 100 * circumference)
                     : circumference
             );
             if (text)
-                text.textContent = (percent !== undefined && percent !== null) ? `${percent}%` : '--%';
+                text.textContent = (percent !== undefined && percent !== null && !isNaN(percent)) ? `${percent}%` : '--%';
         }
         // --- /Миниметрики ---
 
